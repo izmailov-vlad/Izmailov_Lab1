@@ -4,9 +4,16 @@
 using namespace std;
 
 void StackList::push(const std::string new_element) { //O(1)
-	Node* node = new Node(new_element, head);
-	sizeOfStack++;
-	head = node;
+		Node* node = new Node(new_element, head);
+		sizeOfStack++;
+		head = node;
+}
+
+void StackList::MultiPush(int& count, std::string* elements) {
+	for (int i = 0; i < count; i++) {
+		push(elements[i]);
+	}
+	delete[]elements;
 }
 
 void StackList::pop() { //O(1)
@@ -14,6 +21,12 @@ void StackList::pop() { //O(1)
 	Node* node = head;
 	head = head->next;
 	delete node;
+}
+
+void StackList::MultiPop(int& count) {
+	for (int i = 0; i < count; i++) {
+		pop();
+	}
 }
 //as
 bool StackList::isEmpty() { //O(1)

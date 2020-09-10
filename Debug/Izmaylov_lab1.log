@@ -1,9 +1,8 @@
 ﻿  Izmaylov_lab1.cpp
-  StackList.cpp
   StackConsole.cpp
+  StackList.cpp
   StackMassive.cpp
-  Компиляция...
   Создание кода...
 LINK : warning LNK4075: не учитывается "/INCREMENTAL" из-за спецификации "/PROFILE"
 Izmaylov_lab1.obj : warning LNK4075: не учитывается "/EDITANDCONTINUE" из-за спецификации "/OPT:REF"
-  Izmaylov_lab1.vcxproj -> C:\Users\User\source\repos\Izmaylov_lab1\Debug\Izmaylov_lab1.exe
+  Izmaylov_lab1.vcxproj -> C:\Users\User\source\repos\Izmaylov_lab1\Izmailov_Lab1\Debug\Izmaylov_lab1.exe

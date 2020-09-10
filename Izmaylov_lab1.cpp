@@ -1,12 +1,10 @@
-﻿#include <iostream>
+﻿
 #include <ctime>
 #include "StackConsole.h"
 #include <vld.h>
-
 int main()
 {
 	double start = clock();
-
 	StackConsole console;
 	console.Actions();
 	console.InputAction();

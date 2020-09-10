@@ -8,4 +8,5 @@ public:
 	void InputAction();
 	void PrintStackList(StackList &stack);
 	void PrintStackMassive(StackMassive &stack);
+	int InputSize();
 };

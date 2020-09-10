@@ -24,6 +24,10 @@ public:
 
 	virtual void push(const std::string new_element);
 
+	virtual void MultiPush(int& count, std::string *elements);
+
+	virtual void MultiPop(int& count);
+
 	virtual void pop();
 
 	virtual bool isEmpty();

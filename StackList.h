@@ -11,6 +11,7 @@ struct Node {
 		next = nextNode;
 	}
 };
+
 class StackList : public Stack {
 public:
 

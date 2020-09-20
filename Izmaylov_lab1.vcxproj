@@ -161,6 +161,7 @@
   <ItemGroup>
     <ClInclude Include="Stack.h" />
     <ClInclude Include="StackConsole.h" />
+    <ClInclude Include="StackException.h" />
     <ClInclude Include="StackList.h" />
     <ClInclude Include="StackMassive.h" />
   </ItemGroup>

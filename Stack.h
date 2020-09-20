@@ -4,7 +4,6 @@
 
 class Stack {
 public:
-	//Конструктор класс
 
 	virtual void push(const std::string new_element) = 0;
 

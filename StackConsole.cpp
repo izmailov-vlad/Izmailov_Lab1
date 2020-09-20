@@ -1,5 +1,6 @@
 #include "StackConsole.h"
 #include "StackList.h"
+#include "StackException.h"
 #include <iostream>
 #include <string>
 using namespace std;
@@ -52,82 +53,76 @@ void StackConsole::InputAction() {
 	//StackList stack;
 	
 	while (action != "exit") {
-		
-		cout << endl << "Введите команду: ";
-		cin >> action;
+		try {
+			cout << endl << "Введите команду: ";
+			cin >> action;
 
-		if (action == "push") {
-			if (stack.getSize() < stack.GetSizeArray()) {
+			if (action == "push") {
+
 				cout << "Введите элемент : ";
 				cin >> element;
 				cout << endl;
 				stack.push(element);
-			}
-			else {
-				cout << "Достигнут предел стека, больше добавить элементов нельзя" << endl;
-			}
-		}
 
-		else if (action == "multi_push") {
-			cout << "Введите количество элементов: ";
-			cin >> count;
-			if (count + stack.getSize() <= stack.GetSizeArray()) {
+			}
+
+			else if (action == "multi_push") {
+				cout << "Введите количество элементов: ";
+				cin >> count;
+
 				std::string* elements = new std::string[count];
+
 				for (int i = 0; i < count; i++) {
 					cin >> elements[i];
 				}
+
 				stack.MultiPush(count, elements);
-			}
-			else {
-				cout << "Нельзя добавить сразу " << count << " элементов, т.к. это превышает размер стека" << endl;
-			}
-		}
 
-		else if (action == "pop") {
-			cout << endl;
-			if (stack.isEmpty()) {
+
+			}
+
+			else if (action == "pop") {
+				cout << endl;
+
 				stack.pop();
-			}
-			else {
-				cout << "Стек пуст" << endl;
-			}
-			cout << endl;
-		}
-		else if(action == "multi_pop") {
-			cout << "Введите количество удаляемых элементов: ";
-			cin >> count;
 
-			if (stack.getSize() - count >= 0) {
+				cout << endl;
+			}
+			else if (action == "multi_pop") {
+
+				cout << "Введите количество удаляемых элементов: ";
+				cin >> count;
+
 				stack.MultiPop(count);
-			}
-			else {
-				int size = stack.getSize();
-				stack.MultiPop(size);
-			}
-		}
 
-		else if (action == "isEmpty") {
-			if (stack.isEmpty()) {
-				cout << endl << "Стек не пуст" << endl << endl;
 			}
-			else{
-				cout << "Стек пуст" << endl << endl;
-			}
-		}
 
-		else if (action == "printStack") {
-			if (stack.isEmpty()) {
-				//PrintStackList(stack);
-				PrintStackMassive(stack);
+			else if (action == "isEmpty") {
+				if (stack.isEmpty()) {
+					cout << endl << "Стек не пуст" << endl << endl;
+				}
+				else {
+					cout << endl << "Стек пуст" << endl << endl;
+				}
 			}
-			else {
-				cout << "Стек пуст" << endl;
+
+			else if (action == "printStack") {
+				if (stack.isEmpty()) {
+					//PrintStackList(stack);
+					PrintStackMassive(stack);
+				}
+				else {
+					cout << "Стек пуст" << endl;
+				}
 			}
-		}
 
 
-		else if (action == "back") {
-			cout << endl << "[" << stack.back() << "]" << endl << endl;
+			else if (action == "back") {
+				cout << endl << "[" << stack.back() << "]" << endl << endl;
+			}
+		} 
+		catch (StackException& ex) {
+			cout << ex.GetError() << endl;
 		}
 	}
 }

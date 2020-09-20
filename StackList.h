@@ -23,9 +23,9 @@ public:
 		return head;
 	}
 
-	virtual void push(const std::string new_element);
+	virtual void push(const std::string new_element) noexcept;
 
-	virtual void MultiPush(int& count, std::string *elements);
+	virtual void MultiPush(int& count, std::string *elements) noexcept;
 
 	virtual void MultiPop(int& count);
 

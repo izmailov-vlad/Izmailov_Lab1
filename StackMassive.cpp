@@ -1,5 +1,6 @@
 #include "StackMassive.h"
 #include "StackException.h"
+
 void StackMassive::push(std::string new_element) { // O(1)
 	if (sizeOfStack < stackMemory) {
 		array[sizeOfStack] = new_element;

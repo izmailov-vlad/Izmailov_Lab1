@@ -15,9 +15,9 @@ void StackConsole::Actions() {
 	cout << "back -> Получение последнего элемента стека" << endl;
 }
 //
-void StackConsole::PrintStackList(StackList &stack) {
+void StackConsole::PrintStackList(StackList *stack) {
 	
-	Node* var = stack.getHead();
+	Node* var = stack->getHead();
 	cout << endl;
 	while (var->next != nullptr) {
 		cout << "[" << var->element << "] ";
@@ -26,10 +26,10 @@ void StackConsole::PrintStackList(StackList &stack) {
 	cout << "[" << var->element << "] " << endl << endl;
 }
 
-void StackConsole::PrintStackMassive(StackMassive &stack) {
-	std::string *array = stack.getArray();
+void StackConsole::PrintStackMassive(StackMassive *stack) {
+	std::string *array = stack->getArray();
 	cout << endl;
-	for (int begin = 0; begin < stack.getSize(); begin++) {
+	for (int begin = 0; begin < stack->getSize(); begin++) {
 		cout << "[" << array[begin] << "] ";
 	}
 	cout << endl;
@@ -43,14 +43,27 @@ int StackConsole::InputSize() {
 	return size;
 }
 
+
+
 void StackConsole::InputAction() {
 	setlocale(LC_ALL, "Russian");
 	int count;
 	string action = "";
 	string element;
+	string type = "";
+	Stack* stack;
 
-	StackMassive stack(InputSize());
-	//StackList stack;
+	cout << endl << "List -> Стек на основе списка" << endl;
+	cout << "Massive -> Стек на основе массива" << endl;
+	cin >> type;
+
+	if (type == "List") {
+		stack = new StackList();
+	}
+	else {
+		stack = new StackMassive(InputSize());
+	}
+	
 	
 	while (action != "exit") {
 		try {
@@ -62,7 +75,7 @@ void StackConsole::InputAction() {
 				cout << "Введите элемент : ";
 				cin >> element;
 				cout << endl;
-				stack.push(element);
+				stack->push(element);
 
 			}
 
@@ -76,7 +89,7 @@ void StackConsole::InputAction() {
 					cin >> elements[i];
 				}
 
-				stack.MultiPush(count, elements);
+				stack->MultiPush(count, elements);
 
 
 			}
@@ -84,7 +97,7 @@ void StackConsole::InputAction() {
 			else if (action == "pop") {
 				cout << endl;
 
-				stack.pop();
+				stack->pop();
 
 				cout << endl;
 			}
@@ -93,12 +106,12 @@ void StackConsole::InputAction() {
 				cout << "Введите количество удаляемых элементов: ";
 				cin >> count;
 
-				stack.MultiPop(count);
+				stack->MultiPop(count);
 
 			}
 
 			else if (action == "isEmpty") {
-				if (stack.isEmpty()) {
+				if (stack->isEmpty()) {
 					cout << endl << "Стек не пуст" << endl << endl;
 				}
 				else {
@@ -107,9 +120,14 @@ void StackConsole::InputAction() {
 			}
 
 			else if (action == "printStack") {
-				if (stack.isEmpty()) {
-					//PrintStackList(stack);
-					PrintStackMassive(stack);
+				if (stack->isEmpty()) {
+
+					if (type == "List") {
+						PrintStackList(static_cast<StackList*>(stack));
+					}
+					else {
+						PrintStackMassive(static_cast<StackMassive*>(stack));
+					}
 				}
 				else {
 					cout << "Стек пуст" << endl;
@@ -118,11 +136,13 @@ void StackConsole::InputAction() {
 
 
 			else if (action == "back") {
-				cout << endl << "[" << stack.back() << "]" << endl << endl;
+				cout << endl << "[" << stack->back() << "]" << endl << endl;
 			}
 		} 
 		catch (StackException& ex) {
 			cout << ex.GetError() << endl;
 		}
 	}
+
+	delete stack;
 }

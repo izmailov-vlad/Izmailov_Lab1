@@ -159,11 +159,16 @@
     <ClCompile Include="StackMassive.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Factory.h" />
     <ClInclude Include="Stack.h" />
     <ClInclude Include="StackConsole.h" />
     <ClInclude Include="StackException.h" />
     <ClInclude Include="StackList.h" />
     <ClInclude Include="StackMassive.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
+    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

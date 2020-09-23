@@ -17,8 +17,6 @@ public:
 
 	virtual std::string back() = 0;
 
-
-
-	virtual ~Stack() {}
+	virtual ~Stack() = default;
 	
 };

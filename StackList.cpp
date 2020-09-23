@@ -1,16 +1,14 @@
 #include "StackList.h"
-#include "StackConsole.h"
-#include "StackException.h"
 #include <iostream>
 using namespace std;
 
-void StackList::push(const std::string new_element) noexcept { //O(1)
+void StackList::push(const std::string new_element) { //O(1)
 		Node* node = new Node(new_element, head);
 		sizeOfStack++;
 		head = node;
 }
 
-void StackList::MultiPush(int& count, std::string* elements) noexcept {
+void StackList::MultiPush(int& count, std::string* elements) {
 	for (int i = 0; i < count; i++) {
 		push(elements[i]);
 	}
@@ -41,12 +39,7 @@ void StackList::MultiPop(int& count) {
 }
 
 bool StackList::isEmpty() { //O(1)
-	if (head) {
-		return true;
-	}
-	else {
-		return false;
-	}
+	return head != NULL;
 }
 
 

@@ -1,5 +1,6 @@
 #pragma once
 #include "Stack.h"
+#include "StackException.h"
 #include <string>
 
 struct Node {
@@ -23,17 +24,17 @@ public:
 		return head;
 	}
 
-	virtual void push(const std::string new_element) noexcept;
+	void push(const std::string new_element) override;
 
-	virtual void MultiPush(int& count, std::string *elements) noexcept;
+	void MultiPush(int& count, std::string *elements) override;
 
-	virtual void MultiPop(int& count);
+	void MultiPop(int& count) override;
 
-	virtual void pop();
+	void pop() override;
 
-	virtual bool isEmpty();
+	bool isEmpty() override;
 
-	virtual std::string back();
+	std::string back() override;
 
 	
 

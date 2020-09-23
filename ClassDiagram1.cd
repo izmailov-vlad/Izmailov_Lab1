@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Stack">
+    <Position X="3" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAAAAACAAACIAAAAAAAAAAAAAIAAEAQAA=</HashCode>
+      <FileName>Stack.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="StackConsole">
+    <Position X="7.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAIAAAAAAACAQAAAAAAAQAAAAAAAAAAAAAA=</HashCode>
+      <FileName>StackConsole.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="StackException">
+    <Position X="3" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAABAAAAAAAAAAAAIAAAAAAAAAAAAAA=</HashCode>
+      <FileName>StackException.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="StackList">
+    <Position X="5.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAKAAEAgAAAAAAAAIAACIAAAAAAAAAAAAIIAAFAQAA=</HashCode>
+      <FileName>StackList.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="StackMassive">
+    <Position X="0.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAEAAIAAAAAAgAgACIAAAAEAAQAAAAAIAAEATAA=</HashCode>
+      <FileName>StackMassive.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Factory">
+    <Position X="5.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIAAAAAAABAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Factory.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="Node">
+    <Position X="7.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAMAAAA=</HashCode>
+      <FileName>StackList.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

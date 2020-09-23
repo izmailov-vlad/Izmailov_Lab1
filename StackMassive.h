@@ -10,17 +10,17 @@ public:
 		this->array = new std::string[massiveSize];
 	}
 
-	virtual void push( const std::string new_element);
+	void push( const std::string new_element) override;
 
-	virtual void MultiPush(int& count, std::string *elements);
+	void MultiPush(int& count, std::string *elements) override;
 
-	virtual void pop();
+	void pop() override;
 
-	virtual void MultiPop(int& count);
+	void MultiPop(int& count) override;
 
-	virtual bool isEmpty();
+	bool isEmpty() override;
 
-	virtual std::string back();
+	std::string back() override;
 
 
 	

@@ -1,0 +1,36 @@
+﻿  Izmaylov_lab1.cpp
+  StackConsole.cpp
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\xutility(1768,1): error C2679:  бинарный "=": не найден оператор, принимающий правый операнд типа "_Ty" (или приемлемое преобразование отсутствует)
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\xutility(1768,1): error C2679:         with
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\xutility(1768,1): error C2679:         [
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\xutility(1768,1): error C2679:             _Ty=std::string
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\xutility(1768,1): error C2679:         ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\iterator(232,1): message :  может быть "std::ostream_iterator<int,char,std::char_traits<char>> &std::ostream_iterator<int,char,std::char_traits<char>>::operator =(std::ostream_iterator<int,char,std::char_traits<char>> &&)"
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\iterator(232,1): message :  или       "std::ostream_iterator<int,char,std::char_traits<char>> &std::ostream_iterator<int,char,std::char_traits<char>>::operator =(const std::ostream_iterator<int,char,std::char_traits<char>> &)"
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\iterator(208,23): message :  или       "std::ostream_iterator<int,char,std::char_traits<char>> &std::ostream_iterator<int,char,std::char_traits<char>>::operator =(const _Ty &)"
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\iterator(208,23): message :         with
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\iterator(208,23): message :         [
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\iterator(208,23): message :             _Ty=int
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\iterator(208,23): message :         ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\xutility(1768,1): message :  при попытке сопоставить список аргументов "(std::ostream_iterator<int,char,std::char_traits<char>>, _Ty)"
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\xutility(1768,1): message :         with
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\xutility(1768,1): message :         [
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\xutility(1768,1): message :             _Ty=std::string
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\xutility(1768,1): message :         ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\xutility(1805): message :  выполняется компиляция ссылки на экземпляр шаблон функции "_OutIt std::_Copy_unchecked<_Ty*,_Iter>(_InIt,_InIt,_OutIt)"
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\xutility(1805): message :         with
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\xutility(1805): message :         [
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\xutility(1805): message :             _OutIt=std::ostream_iterator<int,char,std::char_traits<char>>,
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\xutility(1805): message :             _Ty=std::string,
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\xutility(1805): message :             _Iter=std::ostream_iterator<int,char,std::char_traits<char>>,
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\xutility(1805): message :             _InIt=std::string *
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\xutility(1805): message :         ]
+  StackList.cpp
+C:\Users\User\source\repos\Izmaylov_lab1\Izmailov_Lab1\StackConsole.cpp(37): message :  выполняется компиляция ссылки на экземпляр шаблон функции "_OutIt std::copy<std::string*,std::ostream_iterator<int,char,std::char_traits<char>>>(_InIt,_InIt,_OutIt)"
+C:\Users\User\source\repos\Izmaylov_lab1\Izmailov_Lab1\StackConsole.cpp(37): message :         with
+C:\Users\User\source\repos\Izmaylov_lab1\Izmailov_Lab1\StackConsole.cpp(37): message :         [
+C:\Users\User\source\repos\Izmaylov_lab1\Izmailov_Lab1\StackConsole.cpp(37): message :             _OutIt=std::ostream_iterator<int,char,std::char_traits<char>>,
+C:\Users\User\source\repos\Izmaylov_lab1\Izmailov_Lab1\StackConsole.cpp(37): message :             _InIt=std::string *
+C:\Users\User\source\repos\Izmaylov_lab1\Izmailov_Lab1\StackConsole.cpp(37): message :         ]
+  StackMassive.cpp
+C:\Users\User\source\repos\Izmaylov_lab1\Izmailov_Lab1\StackConsole.h(9,32): error C2061:  синтаксическая ошибка: идентификатор "StackList"

@@ -1,7 +1,6 @@
 #pragma once
 #include <string>
 
-
 class Stack {
 public:
 
@@ -14,6 +13,8 @@ public:
 	virtual void pop() = 0;
 
 	virtual bool isEmpty() = 0;
+
+	virtual std::string const ToString() = 0;
 
 	virtual std::string back() = 0;
 

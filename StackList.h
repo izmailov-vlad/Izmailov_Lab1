@@ -20,7 +20,7 @@ public:
 		head = NULL;
 	}
 
-	Node* getHead() {
+	Node* getHead() const {
 		return head;
 	}
 
@@ -31,6 +31,8 @@ public:
 	void MultiPop(int& count) override;
 
 	void pop() override;
+
+	std::string const ToString() override;
 
 	bool isEmpty() override;
 

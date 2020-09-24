@@ -1,5 +1,6 @@
 #pragma once
 #include "Stack.h"
+#include <sstream>
 #include <string>
 
 class StackMassive : public Stack {
@@ -20,16 +21,18 @@ public:
 
 	bool isEmpty() override;
 
+	std::string const ToString() override;
+
 	std::string back() override;
 
 
 	
 
-	int getSize() {
+	int getSize() const {
 		return sizeOfStack;
 	}
 
-	std::string* getArray() {
+	std::string* getArray() const {
 		return array;
 	}
 

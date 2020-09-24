@@ -21,26 +21,26 @@ void StackConsole::Actions() {
 	cout << "0. exit -> Выход из программы" << endl;
 }
 //
-void StackConsole::PrintStackList(StackList *stack) {
-	
-	Node* var = stack->getHead();
-	cout << endl;
-	while (var->next != nullptr) {
-		cout << "[" << var->element << "] ";
-		var = var->next;
-	}
-	cout << "[" << var->element << "] " << endl << endl;
-}
+//void StackConsole::PrintStackList(StackList *stack) {
+//	
+//	Node* var = stack->getHead();
+//	cout << endl;
+//	while (var->next != nullptr) {
+//		cout << "[" << var->element << "] ";
+//		var = var->next;
+//	}
+//	cout << "[" << var->element << "] " << endl << endl;
+//}
 
-void StackConsole::PrintStackMassive(StackMassive *stack) {
-	std::string *array = stack->getArray();
-	cout << endl;
-
-	for (int begin = 0; begin < stack->getSize(); begin++) {
-		cout << "[" << array[begin] << "] ";
-	}
-	cout << endl;
-}
+//void StackConsole::PrintStackMassive(StackMassive *stack) {
+//	std::string *array = stack->getArray();
+//	cout << endl;
+//
+//	for (int begin = 0; begin < stack->getSize(); begin++) {
+//		cout << "[" << array[begin] << "] ";
+//	}
+//	cout << endl;
+//}
 
 int StackConsole::InputSize() {
 	int size;
@@ -52,6 +52,8 @@ int StackConsole::InputSize() {
 
 
 
+
+
 void StackConsole::InputAction() {
 	setlocale(LC_ALL, "Russian");
 	int count;
@@ -59,7 +61,7 @@ void StackConsole::InputAction() {
 	string element;
 	string type = "";
 	Factory factory;
-	Stack* stack;
+	Stack *stack;
 
 	cout << endl << "List -> Стек на основе списка" << endl;
 	cout << "Massive -> Стек на основе массива" << endl;
@@ -130,13 +132,7 @@ void StackConsole::InputAction() {
 				case 6: 
 				{
 					if (stack->isEmpty()) {
-
-						if (type == "List") {
-							PrintStackList(dynamic_cast<StackList*>(stack));
-						}
-						else {
-							PrintStackMassive(dynamic_cast<StackMassive*>(stack));
-						}
+							cout << stack->ToString() << endl;
 					}
 					else {
 						cout << "Стек пуст" << endl;
@@ -176,3 +172,6 @@ void StackConsole::InputAction() {
 
 	delete stack;
 }
+
+
+

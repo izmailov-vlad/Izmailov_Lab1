@@ -1,5 +1,6 @@
 #include "StackMassive.h"
 #include "StackException.h"
+#include <iostream>
 
 void StackMassive::push(std::string new_element) { // O(1)
 	if (sizeOfStack < stackMemory) {
@@ -10,6 +11,7 @@ void StackMassive::push(std::string new_element) { // O(1)
 		throw StackException("Выход за пределы массива");
 	}
 }
+
 
 void StackMassive::MultiPush(int& count, std::string *elements) {
 
@@ -58,6 +60,20 @@ bool StackMassive::isEmpty() { // O(1)
 	}
 }
 
+std::string const StackMassive::ToString()
+{
+	std::ostringstream out;
+	std::string* array = StackMassive::array;
+	out << "\n";
+	
+	for (int begin = 0; begin < sizeOfStack; begin++) {
+		out << "[" << array[begin] << "] ";
+	}
+	out << "\n";
+
+	return out.str();
+}
+
 
 std::string StackMassive::back() { // O(1)
 	if (sizeOfStack > 0) {
@@ -67,3 +83,4 @@ std::string StackMassive::back() { // O(1)
 		throw StackException("Последний элемент не найден");
 	}
 }
+

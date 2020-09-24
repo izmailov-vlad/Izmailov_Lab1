@@ -6,7 +6,7 @@ class StackConsole {
 public:
 	void Actions();
 	void InputAction();
-	void PrintStackList(StackList *stack);
-	void PrintStackMassive(StackMassive *stack);
+	//void PrintStackList(StackList *stack);
+	//void PrintStackMassive(StackMassive *stack);
 	int InputSize();
 };

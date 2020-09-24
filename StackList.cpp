@@ -1,6 +1,6 @@
 #include "StackList.h"
 #include <iostream>
-using namespace std;
+#include <sstream>
 
 void StackList::push(const std::string new_element) { //O(1)
 		Node* node = new Node(new_element, head);
@@ -27,6 +27,21 @@ void StackList::pop() {
 	}
 }
 
+std::string const StackList::ToString()
+{
+	std::ostringstream out;
+	Node* var = head;
+	out << "\n";
+	while (var->next != nullptr) {
+		out << "[" << var->element << "] ";
+		var = var->next;
+	}
+	out << "[" << var->element << "] \n\n";
+
+	return out.str();
+}
+
+
 void StackList::MultiPop(int& count) {
 	for (int i = 0; i < count; i++) {
 		if (sizeOfStack) {
@@ -38,7 +53,7 @@ void StackList::MultiPop(int& count) {
 	}
 }
 
-bool StackList::isEmpty() { //O(1)
+bool StackList::isEmpty(){ //O(1)
 	return head != NULL;
 }
 
@@ -55,4 +70,5 @@ std::string StackList::back() {
 		throw StackException("Последний элемент не найден");
 	}
 }
+
 

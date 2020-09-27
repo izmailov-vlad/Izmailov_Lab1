@@ -153,16 +153,23 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Containers.cpp" />
     <ClCompile Include="Izmaylov_lab1.cpp" />
+    <ClCompile Include="Queue.cpp" />
+    <ClCompile Include="QueueConsole.cpp" />
     <ClCompile Include="StackList.cpp" />
     <ClCompile Include="StackConsole.cpp" />
     <ClCompile Include="StackMassive.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Containers.h" />
     <ClInclude Include="Factory.h" />
+    <ClInclude Include="IConsole.h" />
+    <ClInclude Include="Queue.h" />
+    <ClInclude Include="QueueConsole.h" />
     <ClInclude Include="Stack.h" />
     <ClInclude Include="StackConsole.h" />
-    <ClInclude Include="StackException.h" />
+    <ClInclude Include="ContainerException.h" />
     <ClInclude Include="StackList.h" />
     <ClInclude Include="StackMassive.h" />
   </ItemGroup>

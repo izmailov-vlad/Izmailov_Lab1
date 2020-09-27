@@ -1,9 +1,9 @@
-#include "StackException.h"
-#include "StackConsole.h"
-#include "Factory.h"
 #include <iostream>
 #include <iterator>
 #include <string>
+#include "StackConsole.h"
+#include "ContainerException.h"
+#include "Factory.h"
 
 using namespace std;
 
@@ -20,27 +20,7 @@ void StackConsole::Actions() {
 	cout << "9. help -> Список команд" << endl;
 	cout << "0. exit -> Выход из программы" << endl;
 }
-//
-//void StackConsole::PrintStackList(StackList *stack) {
-//	
-//	Node* var = stack->getHead();
-//	cout << endl;
-//	while (var->next != nullptr) {
-//		cout << "[" << var->element << "] ";
-//		var = var->next;
-//	}
-//	cout << "[" << var->element << "] " << endl << endl;
-//}
 
-//void StackConsole::PrintStackMassive(StackMassive *stack) {
-//	std::string *array = stack->getArray();
-//	cout << endl;
-//
-//	for (int begin = 0; begin < stack->getSize(); begin++) {
-//		cout << "[" << array[begin] << "] ";
-//	}
-//	cout << endl;
-//}
 
 int StackConsole::InputSize() {
 	int size;
@@ -50,10 +30,6 @@ int StackConsole::InputSize() {
 	return size;
 }
 
-
-
-
-
 void StackConsole::InputAction() {
 	setlocale(LC_ALL, "Russian");
 	int count;
@@ -61,18 +37,20 @@ void StackConsole::InputAction() {
 	string element;
 	string type = "";
 	Factory factory;
-	Stack *stack;
+	Stack *stack = nullptr;
 
 	cout << endl << "List -> Стек на основе списка" << endl;
 	cout << "Massive -> Стек на основе массива" << endl;
-	cin >> type;
-
-	if (type == "List") {
-		stack = factory.CreateStackList();
-	}
-	else {
-		stack = factory.CreateStackMassive(InputSize());
-	}
+	
+	while (type != "List" || type != "Massive") {
+		cin >> type;
+		if (type == "List") {
+			stack = factory.CreateStackList();
+		}
+		else {
+			stack = factory.CreateStackMassive(InputSize());
+		}
+	} 
 	
 	
 	while (action != 0) {
@@ -132,7 +110,7 @@ void StackConsole::InputAction() {
 				case 6: 
 				{
 					if (stack->isEmpty()) {
-							cout << stack->ToString() << endl;
+						cout << stack->ToString() << endl;
 					}
 					else {
 						cout << "Стек пуст" << endl;
@@ -165,7 +143,7 @@ void StackConsole::InputAction() {
 				}
 			}
 		}
-		catch (StackException& ex) {
+		catch (ContainerException& ex) {
 			cout << ex.GetError() << endl;
 		}
 	}

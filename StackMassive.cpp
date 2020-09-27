@@ -1,5 +1,5 @@
 #include "StackMassive.h"
-#include "StackException.h"
+#include "ContainerException.h"
 #include <iostream>
 
 void StackMassive::push(std::string new_element) { // O(1)
@@ -8,7 +8,7 @@ void StackMassive::push(std::string new_element) { // O(1)
 		sizeOfStack++;
 	}
 	else {
-		throw StackException("Выход за пределы массива");
+		throw ContainerException("Выход за пределы массива");
 	}
 }
 
@@ -24,7 +24,7 @@ void StackMassive::MultiPush(int& count, std::string *elements) {
 		delete[]elements;
 	}
 	else {
-		throw StackException("Невозможно добавить такое количество элементов");
+		throw ContainerException("Невозможно добавить такое количество элементов");
 	}
 
 
@@ -36,7 +36,7 @@ void StackMassive::pop() { // O(1)
 		sizeOfStack--;
 	}
 	else {
-		throw StackException("Стек пуст");
+		throw ContainerException("Стек пуст");
 	}
 }
 
@@ -46,7 +46,7 @@ void StackMassive::MultiPop(int &count) {
 			pop();
 		}
 		else {
-			throw StackException("Все элементы удалены");
+			throw ContainerException("Все элементы удалены");
 		}
 	}
 }
@@ -80,7 +80,7 @@ std::string StackMassive::back() { // O(1)
 		return array[0];
 	}
 	else {
-		throw StackException("Последний элемент не найден");
+		throw ContainerException("Последний элемент не найден");
 	}
 }
 

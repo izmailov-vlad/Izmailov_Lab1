@@ -1,4 +1,5 @@
 #include "StackList.h"
+#include "ContainerException.h"
 #include <iostream>
 #include <sstream>
 
@@ -23,7 +24,7 @@ void StackList::pop() {
 		delete node;
 	}
 	else {
-		throw StackException("Стек пуст");
+		throw ContainerException("Стек пуст");
 	}
 }
 
@@ -48,7 +49,7 @@ void StackList::MultiPop(int& count) {
 			pop();
 		}
 		else {
-			throw StackException("Все элементы удалены");
+			throw ContainerException("Все элементы удалены");
 		}
 	}
 }
@@ -67,7 +68,7 @@ std::string StackList::back() {
 		return node->element;
 	}
 	else {
-		throw StackException("Последний элемент не найден");
+		throw ContainerException("Последний элемент не найден");
 	}
 }
 

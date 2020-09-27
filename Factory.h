@@ -1,6 +1,9 @@
 #pragma once
 #include "StackList.h"
 #include "StackMassive.h"
+#include "Queue.h"
+#include "StackConsole.h"
+#include "QueueConsole.h"
 
 class Factory {
 public:
@@ -10,4 +13,6 @@ public:
 	StackMassive* CreateStackMassive(int size) const {
 		return new StackMassive(size);
 	};
+
+
 };

@@ -1,6 +1,5 @@
 #pragma once
 #include "Stack.h"
-#include "StackException.h"
 #include <string>
 
 struct Node {

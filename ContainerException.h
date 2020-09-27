@@ -1,8 +1,8 @@
 #pragma once
 #include <string>
-class StackException {
+class ContainerException {
 public:
-	StackException(std::string error) {
+	ContainerException(std::string error) {
 		_error = error;
 	}
 

@@ -4,18 +4,18 @@
 
 
 
-void Queue::Push (const std::string& element) {
+void Queue::push (const std::string& element) {
 	if (queueSize < queueMemory) {
 		queue[queueSize] = element;
 		queueSize++;
 	}
 }
 
-void Queue::MultiPush(int count, std::string *elements) {
+void Queue::MultiPush(const int &count, std::string *elements) {
 	if (count + queueSize <= queueMemory) {
 
 		for (int i = 0; i < count; i++) {
-			Push(elements[i]);
+			push(elements[i]);
 		}
 
 		delete[]elements;
@@ -25,10 +25,10 @@ void Queue::MultiPush(int count, std::string *elements) {
 	}
 }
 
-void Queue::MultiPop(int count) {
+void Queue::MultiPop(const int &count) {
 	for (int i = 0; i < count; i++) {
 		if (queueSize) {
-			Pop();
+			pop();
 		}
 		else {
 			throw ContainerException("Все элементы удалены");
@@ -36,7 +36,7 @@ void Queue::MultiPop(int count) {
 	}
 }
 
-std::string Queue::ToString() {
+std::string Queue::ToString() const {
 	std::ostringstream out;
 	std::string* array = Queue::queue;
 	out << "\n";
@@ -49,15 +49,15 @@ std::string Queue::ToString() {
 	return out.str();
 }
 
-void Queue::Pop() {
+void Queue::pop() {
 	for (int i = 1; i < queueSize; i++) {
 		queue[i - 1] = queue[i];
 	}
-	queue[queueSize] = "";
+	queue[queueSize - 1] = "";
 	queueSize--;
 }
 
-std::string Queue::Front() {
+std::string Queue::Front() const {
 	if (queueSize != 0) {
 		return queue[0];
 	}
@@ -65,7 +65,7 @@ std::string Queue::Front() {
 	throw ContainerException("Стек пуст");
 }
 
-std::string Queue::Back() {
+std::string Queue::back() const {
 	if (queueSize != 0) {
 		return queue[queueSize - 1];
 	}
@@ -73,6 +73,6 @@ std::string Queue::Back() {
 	throw ContainerException("Стек пуст");
 }
 
-bool Queue::Empty() {
+bool Queue::isEmpty() const {
 	return queueSize == 0;
 }

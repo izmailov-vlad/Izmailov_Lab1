@@ -52,7 +52,7 @@ void QueueConsole::InputAction() {
 				cout << "Введите элемент : ";
 				cin >> element;
 				cout << endl;
-				queue.Push(element);
+				queue.push(element);
 				break;
 			}
 
@@ -71,7 +71,7 @@ void QueueConsole::InputAction() {
 			{
 				cout << endl;
 
-				queue.Pop();
+				queue.pop();
 				cout << endl;
 				break;
 			}
@@ -86,7 +86,7 @@ void QueueConsole::InputAction() {
 			}
 			case 5:
 			{
-				if (queue.Empty()) {
+				if (queue.isEmpty()) {
 					cout << endl << "Стек пуст" << endl << endl;
 				}
 				else {
@@ -96,7 +96,7 @@ void QueueConsole::InputAction() {
 			}
 			case 6:
 			{
-				if (!queue.Empty()) {
+				if (!queue.isEmpty()) {
 					cout << queue.ToString() << endl;
 				}
 				else {
@@ -107,7 +107,7 @@ void QueueConsole::InputAction() {
 			}
 			case 7:
 			{
-				cout << endl << "[" << queue.Back() << "]" << endl << endl;
+				cout << endl << "[" << queue.back() << "]" << endl << endl;
 				break;
 			}
 			case 8:

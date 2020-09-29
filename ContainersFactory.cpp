@@ -1,7 +1,7 @@
-#include "Containers.h"
+#include "ContainersFactory.h"
 #include <iostream>
 using namespace std;
-void Containers::ChooseContainer()
+void ContainersFactory::ChooseContainer()
 {
 	setlocale(LC_ALL, "Russian");
 
@@ -24,6 +24,7 @@ void Containers::ChooseContainer()
 			console = CreateStackContainer();
 			break;
 		}
+		
 	}
 
 	console->Actions();

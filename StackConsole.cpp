@@ -1,6 +1,7 @@
 #include <iostream>
 #include <iterator>
 #include <string>
+#include <sstream>
 #include "StackConsole.h"
 #include "ContainerException.h"
 #include "Factory.h"
@@ -24,9 +25,12 @@ void StackConsole::Actions() {
 
 int StackConsole::InputSize() {
 	int size;
+
 	cout << "Размер стека: ";
 	cin >> size;
+
 	cout << endl;
+	
 	return size;
 }
 
@@ -37,12 +41,12 @@ void StackConsole::InputAction() {
 	string element;
 	string type = "";
 	Factory factory;
-	Stack *stack = nullptr;
+	Container *stack = nullptr;
 
 	cout << endl << "List -> Стек на основе списка" << endl;
 	cout << "Massive -> Стек на основе массива" << endl;
 	
-	while (type != "List" || type != "Massive") {
+	while (type != "List" && type != "Massive") {
 		cin >> type;
 		if (type == "List") {
 			stack = factory.CreateStackList();

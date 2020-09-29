@@ -1,9 +1,9 @@
 #pragma once
-#include "Stack.h"
+#include "Container.h"
 #include <sstream>
 #include <string>
 
-class StackMassive : public Stack {
+class StackMassive : public Container {
 public:
 	StackMassive(int massiveSize) {
 		sizeOfStack = 0;
@@ -11,19 +11,19 @@ public:
 		this->array = new std::string[massiveSize];
 	}
 
-	void push( const std::string new_element) override;
+	void push( const std::string &new_element) override;
 
-	void MultiPush(int& count, std::string *elements) override;
+	void MultiPush(const int& count, std::string *elements) override;
 
 	void pop() override;
 
-	void MultiPop(int& count) override;
+	void MultiPop(const int& count) override;
 
-	bool isEmpty() override;
+	bool isEmpty() const override;
 
-	std::string const ToString() override;
+	std::string ToString() const override;
 
-	std::string back() override;
+	std::string back() const override;
 
 
 	

@@ -13,60 +13,84 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Файлы заголовков\Console">
+      <UniqueIdentifier>{92f56d38-f8fa-4fad-abab-6c595a3fcbfb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Interfaces">
+      <UniqueIdentifier>{ccfd5445-e9a9-4173-87dd-7b5b3daf89c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Exception">
+      <UniqueIdentifier>{261431c5-0f3b-457d-a4ae-107d39ec4a3a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Containers">
+      <UniqueIdentifier>{8d9db1d9-0b00-4ad6-a42e-1ecf96469f0d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Bridge">
+      <UniqueIdentifier>{382e75c9-40c8-415e-b5fc-210eb805bb7e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\Containers">
+      <UniqueIdentifier>{9dccbf50-ce68-42f7-b30b-cc31ce9f64b6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\Bridge">
+      <UniqueIdentifier>{50ba424a-ec6b-438b-820d-baad4adb4969}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\Console">
+      <UniqueIdentifier>{e18be411-561f-457f-8cd7-95d5c81fdd3b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Izmaylov_lab1.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="StackConsole.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
     <ClCompile Include="StackList.cpp">
-      <Filter>Исходные файлы</Filter>
+      <Filter>Исходные файлы\Containers</Filter>
     </ClCompile>
     <ClCompile Include="StackMassive.cpp">
-      <Filter>Исходные файлы</Filter>
+      <Filter>Исходные файлы\Containers</Filter>
     </ClCompile>
     <ClCompile Include="Queue.cpp">
-      <Filter>Исходные файлы</Filter>
+      <Filter>Исходные файлы\Containers</Filter>
+    </ClCompile>
+    <ClCompile Include="StackConsole.cpp">
+      <Filter>Исходные файлы\Console</Filter>
     </ClCompile>
     <ClCompile Include="QueueConsole.cpp">
-      <Filter>Исходные файлы</Filter>
+      <Filter>Исходные файлы\Console</Filter>
     </ClCompile>
-    <ClCompile Include="Containers.cpp">
-      <Filter>Исходные файлы</Filter>
+    <ClCompile Include="ContainersFactory.cpp">
+      <Filter>Исходные файлы\Bridge</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Stack.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="StackConsole.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="StackList.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="StackMassive.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
     <ClInclude Include="Factory.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="Queue.h">
-      <Filter>Файлы заголовков</Filter>
+    <ClInclude Include="QueueConsole.h">
+      <Filter>Файлы заголовков\Console</Filter>
+    </ClInclude>
+    <ClInclude Include="StackConsole.h">
+      <Filter>Файлы заголовков\Console</Filter>
     </ClInclude>
     <ClInclude Include="IConsole.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="QueueConsole.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Файлы заголовков\Interfaces</Filter>
     </ClInclude>
     <ClInclude Include="ContainerException.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Файлы заголовков\Exception</Filter>
     </ClInclude>
-    <ClInclude Include="Containers.h">
-      <Filter>Файлы заголовков</Filter>
+    <ClInclude Include="Queue.h">
+      <Filter>Файлы заголовков\Containers</Filter>
+    </ClInclude>
+    <ClInclude Include="StackList.h">
+      <Filter>Файлы заголовков\Containers</Filter>
+    </ClInclude>
+    <ClInclude Include="StackMassive.h">
+      <Filter>Файлы заголовков\Containers</Filter>
+    </ClInclude>
+    <ClInclude Include="ContainersFactory.h">
+      <Filter>Файлы заголовков\Bridge</Filter>
+    </ClInclude>
+    <ClInclude Include="Container.h">
+      <Filter>Файлы заголовков\Interfaces</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

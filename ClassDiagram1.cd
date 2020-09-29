@@ -1,49 +1,70 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="Stack">
-    <Position X="3" Y="0.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAEAAAAAAAAACAAACIAAAAAAAAAAAAAIAAEAQAA=</HashCode>
-      <FileName>Stack.h</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="StackConsole">
-    <Position X="7.25" Y="2.75" Width="1.5" />
+    <Position X="6.25" Y="4.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAIAIAAAAAAACAQAAAAAAAQAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAIAAAAAAAAACAAAAAAAAAQAAAAAAAAAAAAAA=</HashCode>
       <FileName>StackConsole.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="StackException">
-    <Position X="3" Y="3.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAgAAAAAAAAAABAAAAAAAAAAAAIAAAAAAAAAAAAAA=</HashCode>
-      <FileName>StackException.h</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="StackList">
-    <Position X="5.25" Y="0.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>gAAKAAEAgAAAAAAAAIAACIAAAAAAAAAAAAIIAAFAQAA=</HashCode>
-      <FileName>StackList.h</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="StackMassive">
-    <Position X="0.75" Y="0.75" Width="1.5" />
+    <Position X="6.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAACAAEAAIAAAAAAgAgACIAAAAEAAQAAAAAIAAEATAA=</HashCode>
+      <HashCode>AAACAAEAAIAAAAAEgAgACIAAAAEAAQAAAAAIAAEATAA=</HashCode>
       <FileName>StackMassive.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Factory">
-    <Position X="5.25" Y="4.75" Width="1.5" />
+  <Class Name="ContainerException">
+    <Position X="8.25" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAIAAAAAAABAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Factory.h</FileName>
+      <HashCode>AAAAAAAAAAAAAAABAAAAAAAAAAAAIAAAAAAAAAQAAAA=</HashCode>
+      <FileName>ContainerException.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ContainersFactory">
+    <Position X="8.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAACAAAAAAAEgAAAAAAAAAA=</HashCode>
+      <FileName>ContainersFactory.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="QueueConsole">
+    <Position X="10.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAAAAAAACAAAAAAAAAQAAAAAAAAAAAAAA=</HashCode>
+      <FileName>QueueConsole.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Queue">
+    <Position X="4.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAEAACAAAAAEAABACKAAQAAAAAgAAAAIAAEAQAA=</HashCode>
+      <FileName>Queue.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="StackList">
+    <Position X="2.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAKAAEAgAAAAAAEAIAACIAAAAAAAAAAAAIIAAFAQAA=</HashCode>
+      <FileName>StackList.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Container">
+    <Position X="0.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAAAAEAAAACIAAAAAAAAAAAAAIAAEAQAA=</HashCode>
+      <FileName>Container.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IConsole">
+    <Position X="8.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IConsole.h</FileName>
     </TypeIdentifier>
   </Class>
   <Struct Name="Node">
-    <Position X="7.25" Y="0.75" Width="1.5" />
+    <Position X="10" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAMAAAA=</HashCode>
       <FileName>StackList.h</FileName>

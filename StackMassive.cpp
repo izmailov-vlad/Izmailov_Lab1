@@ -2,7 +2,7 @@
 #include "ContainerException.h"
 #include <iostream>
 
-void StackMassive::push(std::string new_element) { // O(1)
+void StackMassive::push(const std::string &new_element) { // O(1)
 	if (sizeOfStack < stackMemory) {
 		array[sizeOfStack] = new_element;
 		sizeOfStack++;
@@ -13,7 +13,7 @@ void StackMassive::push(std::string new_element) { // O(1)
 }
 
 
-void StackMassive::MultiPush(int& count, std::string *elements) {
+void StackMassive::MultiPush(const int& count, std::string *elements) {
 
 	if (count + sizeOfStack <= stackMemory) {
 
@@ -40,7 +40,7 @@ void StackMassive::pop() { // O(1)
 	}
 }
 
-void StackMassive::MultiPop(int &count) {
+void StackMassive::MultiPop(const int &count) {
 	for (int i = 0; i < count; i++) {
 		if (sizeOfStack) {
 			pop();
@@ -51,7 +51,7 @@ void StackMassive::MultiPop(int &count) {
 	}
 }
 
-bool StackMassive::isEmpty() { // O(1)
+bool StackMassive::isEmpty() const { // O(1)
 	if (sizeOfStack != 0) {
 		return true;
 	}
@@ -60,7 +60,7 @@ bool StackMassive::isEmpty() { // O(1)
 	}
 }
 
-std::string const StackMassive::ToString()
+std::string StackMassive::ToString() const
 {
 	std::ostringstream out;
 	std::string* array = StackMassive::array;
@@ -75,7 +75,7 @@ std::string const StackMassive::ToString()
 }
 
 
-std::string StackMassive::back() { // O(1)
+std::string StackMassive::back() const { // O(1)
 	if (sizeOfStack > 0) {
 		return array[0];
 	}

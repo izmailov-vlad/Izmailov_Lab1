@@ -2,7 +2,9 @@
 #include "IConsole.h"
 #include "QueueConsole.h"
 #include "StackConsole.h"
-class Containers {
+
+
+class ContainersFactory {
 public:
 
 	void ChooseContainer();
@@ -14,5 +16,7 @@ public:
 	StackConsole* CreateStackContainer() {
 		return new StackConsole();
 	}
+
+
 	
 };

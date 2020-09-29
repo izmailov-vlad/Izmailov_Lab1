@@ -1,7 +1,8 @@
 #pragma once
 #include <string>
 #include <sstream>
-class Queue {
+#include "Container.h"
+class Queue : public Container {
 public:
 
 	Queue(int sizeQueue) {
@@ -9,16 +10,16 @@ public:
 		queueMemory = sizeQueue;
 	}
 
-	void MultiPush(int count, std::string *elements);
-	void Push(const std::string& element);
-	void MultiPop(int count);
-	void Pop();
+	void MultiPush(const int &count, std::string *elements) override;
+	void push(const std::string& element) override;
+	void MultiPop(const int &count) override;
+	void pop() override;
 
-	std::string ToString();
-	std::string Front();
-	std::string Back();
+	std::string ToString() const override;
+	std::string Front() const;
+	std::string back() const override;
 
-	bool Empty();
+	bool isEmpty() const override;
 
 	~Queue() {
 		delete[] queue;

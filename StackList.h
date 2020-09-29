@@ -1,5 +1,5 @@
 #pragma once
-#include "Stack.h"
+#include "Container.h"
 #include <string>
 
 struct Node {
@@ -12,7 +12,7 @@ struct Node {
 	}
 };
 
-class StackList : public Stack {
+class StackList : public Container {
 public:
 
 	StackList() {
@@ -23,19 +23,19 @@ public:
 		return head;
 	}
 
-	void push(const std::string new_element) override;
+	void push(const std::string &new_element) override;
 
-	void MultiPush(int& count, std::string *elements) override;
+	void MultiPush(const int& count, std::string *elements) override;
 
-	void MultiPop(int& count) override;
+	void MultiPop(const int& count) override;
 
 	void pop() override;
 
-	std::string const ToString() override;
+	std::string ToString() const override;
 
-	bool isEmpty() override;
+	bool isEmpty() const override;
 
-	std::string back() override;
+	std::string back() const override;
 
 	
 
@@ -44,7 +44,7 @@ public:
 		this->head = head;
 	}
 
-	int size() {
+	int size() const {
 		return sizeOfStack;
 	}
 

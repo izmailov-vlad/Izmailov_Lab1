@@ -11,7 +11,7 @@
 # Precompiled Headers
 *.gch
 *.pch
-
+*.sln
 # Compiled Dynamic libraries
 *.so
 *.dylib
@@ -31,3 +31,5 @@
 *.exe
 *.out
 *.app
+*.vcxproj
+*.aps

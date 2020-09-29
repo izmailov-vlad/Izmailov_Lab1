@@ -25,9 +25,6 @@
     <Filter Include="Файлы заголовков\Containers">
       <UniqueIdentifier>{8d9db1d9-0b00-4ad6-a42e-1ecf96469f0d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Файлы заголовков\Bridge">
-      <UniqueIdentifier>{382e75c9-40c8-415e-b5fc-210eb805bb7e}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Исходные файлы\Containers">
       <UniqueIdentifier>{9dccbf50-ce68-42f7-b30b-cc31ce9f64b6}</UniqueIdentifier>
     </Filter>
@@ -36,6 +33,9 @@
     </Filter>
     <Filter Include="Исходные файлы\Console">
       <UniqueIdentifier>{e18be411-561f-457f-8cd7-95d5c81fdd3b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Factory">
+      <UniqueIdentifier>{10d629fb-ce81-4cc4-be7a-41d37958a23d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -62,9 +62,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Factory.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
     <ClInclude Include="QueueConsole.h">
       <Filter>Файлы заголовков\Console</Filter>
     </ClInclude>
@@ -86,11 +83,14 @@
     <ClInclude Include="StackMassive.h">
       <Filter>Файлы заголовков\Containers</Filter>
     </ClInclude>
-    <ClInclude Include="ContainersFactory.h">
-      <Filter>Файлы заголовков\Bridge</Filter>
-    </ClInclude>
     <ClInclude Include="Container.h">
       <Filter>Файлы заголовков\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="ContainersFactory.h">
+      <Filter>Файлы заголовков\Factory</Filter>
+    </ClInclude>
+    <ClInclude Include="Factory.h">
+      <Filter>Файлы заголовков\Factory</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

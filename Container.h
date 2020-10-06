@@ -12,7 +12,7 @@ public:
 
 	virtual void pop() = 0;
 
-	virtual bool isEmpty() const = 0;
+	virtual bool Empty() const = 0;
 
 	virtual std::string ToString() const = 0;
 

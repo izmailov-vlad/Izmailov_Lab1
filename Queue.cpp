@@ -38,7 +38,7 @@ void Queue::MultiPop(const int &count) {
 
 std::string Queue::ToString() const {
 	std::ostringstream out;
-	std::string* array = Queue::queue;
+	std::string* array = queue;
 	out << "\n";
 
 	for (int begin = 0; begin < queueSize; begin++) {
@@ -73,6 +73,6 @@ std::string Queue::back() const {
 	throw ContainerException("Стек пуст");
 }
 
-bool Queue::isEmpty() const {
+bool Queue::Empty() const {
 	return queueSize == 0;
 }

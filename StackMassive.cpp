@@ -51,13 +51,8 @@ void StackMassive::MultiPop(const int &count) {
 	}
 }
 
-bool StackMassive::isEmpty() const { // O(1)
-	if (sizeOfStack != 0) {
-		return true;
-	}
-	else {
-		return false;
-	}
+bool StackMassive::Empty() const { // O(1)
+	return sizeOfStack == 0;
 }
 
 std::string StackMassive::ToString() const

@@ -1,13 +1,43 @@
 #pragma once
 #include <string>
 #include <sstream>
+#include <algorithm>
 #include "Container.h"
 class Queue : public Container {
 public:
 
+	Queue() = default;
 	Queue(int sizeQueue) {
 		queue = new std::string[sizeQueue];
 		queueMemory = sizeQueue;
+	}
+
+	Queue(const Queue& object) : Queue(object.queueMemory) {
+		if (object.queue != nullptr) {
+			this->queue = new std::string[object.queueMemory];
+			this->queueMemory = object.queueMemory;
+			this->queueSize = object.queueSize;
+			std::copy(object.queue, object.queue + object.queueMemory, queue);
+		}
+	}
+
+	Queue& operator = (const Queue& object) {
+
+		if (&object == this) {
+			return *this;
+		}
+
+		if (queue != nullptr) {
+			delete[] queue;
+		}
+		if (object.queue != nullptr) {
+			queue = new std::string[object.queueMemory];
+			this->queueMemory = object.queueMemory;
+			this->queueSize = object.queueSize;
+			std::copy(object.queue, object.queue + object.queueMemory, queue);
+		}
+
+		return *this;
 	}
 
 	void MultiPush(const int &count, std::string *elements) override;
@@ -19,7 +49,7 @@ public:
 	std::string Front() const;
 	std::string back() const override;
 
-	bool isEmpty() const override;
+	bool Empty() const override;
 
 	~Queue() {
 		delete[] queue;

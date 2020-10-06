@@ -54,8 +54,8 @@ void StackList::MultiPop(const int& count) {
 	}
 }
 
-bool StackList::isEmpty() const{ //O(1)
-	return head != NULL;
+bool StackList::Empty() const{ //O(1)
+	return head == NULL;
 }
 
 

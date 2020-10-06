@@ -18,6 +18,34 @@ public:
 	StackList() {
 		head = NULL;
 	}
+	
+
+	StackList(const StackList& object) : StackList() {
+		if (object.head != nullptr) {
+			Node* tmp = object.head;
+			this->sizeOfStack = object.sizeOfStack;
+			std::copy(object.head, object.head + object.sizeOfStack, head);
+		}
+	}
+
+	StackList& operator = (const StackList& object) {
+		
+		if (&object == this) {
+			return *this;
+		}
+
+		if (head != nullptr) {
+			for (int i = 0; i < sizeOfStack; i++) {
+				pop();
+			}
+		}
+		if (object.head != nullptr) {
+			head = NULL;
+			std::copy(object.head, object.head + object.sizeOfStack, head);
+		}
+
+		return *this;
+	}
 
 	Node* getHead() const {
 		return head;
@@ -33,7 +61,7 @@ public:
 
 	std::string ToString() const override;
 
-	bool isEmpty() const override;
+	bool Empty() const override;
 
 	std::string back() const override;
 

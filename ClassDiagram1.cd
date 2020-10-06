@@ -1,12 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="StackConsole">
-    <Position X="6.25" Y="4.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAIAAAAAAAAACAAAAAAAAAQAAAAAAAAAAAAAA=</HashCode>
-      <FileName>StackConsole.h</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="StackMassive">
     <Position X="6.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
@@ -19,20 +12,6 @@
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAABAAAAAAAAAAAAIAAAAAAAAAQAAAA=</HashCode>
       <FileName>ContainerException.h</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="ContainersFactory">
-    <Position X="8.25" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAACAAAAAAAEgAAAAAAAAAA=</HashCode>
-      <FileName>ContainersFactory.h</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="QueueConsole">
-    <Position X="10.25" Y="4.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAIAAAAAAAAACAAAAAAAAAQAAAAAAAAAAAAAA=</HashCode>
-      <FileName>QueueConsole.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Queue">
@@ -54,13 +33,6 @@
     <TypeIdentifier>
       <HashCode>AAAAAAEAAAAAAAAEAAAACIAAAAAAAAAAAAAIAAEAQAA=</HashCode>
       <FileName>Container.h</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="IConsole">
-    <Position X="8.25" Y="4.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAA=</HashCode>
-      <FileName>IConsole.h</FileName>
     </TypeIdentifier>
   </Class>
   <Struct Name="Node">

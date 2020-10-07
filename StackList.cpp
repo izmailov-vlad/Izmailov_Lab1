@@ -4,9 +4,9 @@
 #include <sstream>
 
 void StackList::Push(const std::string new_element) { //O(1)
-		Node* node = new Node(new_element, head);
-		sizeOfStack++;
-		head = node;
+		Node* node = new Node(new_element, _head);
+		_sizeOfStack++;
+		_head = node;
 }
 
 void StackList::MultiPush(const int count, std::string* elements) {
@@ -17,10 +17,10 @@ void StackList::MultiPush(const int count, std::string* elements) {
 }
 
 void StackList::Pop() {
-	if (sizeOfStack) {//O(1)
-		sizeOfStack--;
-		Node* node = head;
-		head = head->next;
+	if (_sizeOfStack) {//O(1)
+		_sizeOfStack--;
+		Node* node = _head;
+		_head = _head->next;
 		delete node;
 	}
 	else {
@@ -31,7 +31,7 @@ void StackList::Pop() {
 std::string StackList::ToString() const
 {
 	std::ostringstream out;
-	Node* var = head;
+	Node* var = _head;
 	
 	while (var->next != nullptr) {
 		out << "[" << var->element << "] ";
@@ -45,7 +45,7 @@ std::string StackList::ToString() const
 
 void StackList::MultiPop(const int count) {
 	for (int i = 0; i < count; i++) {
-		if (sizeOfStack) {
+		if (_sizeOfStack) {
 			Pop();
 		}
 		else {
@@ -55,13 +55,13 @@ void StackList::MultiPop(const int count) {
 }
 
 bool StackList::Empty() const{ //O(1)
-	return head == NULL;
+	return _head == NULL;
 }
 
 
 std::string StackList::Back() const{ 
-	if (sizeOfStack > 0) {
-		Node* node = head;
+	if (_sizeOfStack > 0) {
+		Node* node = _head;
 		while (node->next != nullptr) {
 			node = node->next;
 		}

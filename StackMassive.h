@@ -6,16 +6,16 @@
 class StackMassive : public Container {
 public:
 	StackMassive(int massiveSize) {
-		sizeOfStack = 0;
-		stackMemory = massiveSize;
-		this->array = new std::string[massiveSize];
+		_sizeOfStack = 0;
+		_stackMemory = massiveSize;
+		this->_array = new std::string[massiveSize];
 	}
 
-	StackMassive(const StackMassive& object) : StackMassive(object.stackMemory) {
-		if (object.array != nullptr) {
-			this->array = new std::string[object.stackMemory];
-			this->stackMemory = object.stackMemory;
-			this->sizeOfStack = object.sizeOfStack;
+	StackMassive(const StackMassive& object) : StackMassive(object._stackMemory) {
+		if (object._array != nullptr) {
+			this->_array = new std::string[object._stackMemory];
+			this->_stackMemory = object._stackMemory;
+			this->_sizeOfStack = object._sizeOfStack;
 		}
 	}
 
@@ -25,12 +25,12 @@ public:
 			return *this;
 		}
 
-		if (array != nullptr) {
-			delete[] array;
+		if (_array != nullptr) {
+			delete[] _array;
 		}
-		if (object.array != nullptr) {
-			array = new std::string[stackMemory];
-			std::copy(object.array, object.array + object.stackMemory, array);
+		if (object._array != nullptr) {
+			_array = new std::string[_stackMemory];
+			std::copy(object._array, object._array + object._stackMemory, _array);
 		}
 
 		return *this;
@@ -53,30 +53,30 @@ public:
 	Container* Clone() const override;
 
 	std::string GetType() const override {
-		return type;
+		return _type;
 	}
 
 	
 
-	int getSize() const {
-		return sizeOfStack;
+	int GetSize() const {
+		return _sizeOfStack;
 	}
 
-	std::string* getArray() const {
-		return array;
+	std::string* GetArray() const {
+		return _array;
 	}
 
 	int GetSizeArray() {
-		return stackMemory;
+		return _stackMemory;
 	}
 
 	~StackMassive() {
-		delete[] array;
+		delete[] _array;
 	}
 
 private:
-	std::string type = "StackMassive";
-	int sizeOfStack = 0;
-	int stackMemory;
-	std::string* array;
+	std::string _type = "StackMassive";
+	int _sizeOfStack = 0;
+	int _stackMemory;
+	std::string* _array;
 };

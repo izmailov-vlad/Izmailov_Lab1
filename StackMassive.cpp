@@ -3,9 +3,9 @@
 #include <iostream>
 
 void StackMassive::Push(const std::string new_element) { // O(1)
-	if (sizeOfStack < stackMemory) {
-		array[sizeOfStack] = new_element;
-		sizeOfStack++;
+	if (_sizeOfStack < _stackMemory) {
+		_array[_sizeOfStack] = new_element;
+		_sizeOfStack++;
 	}
 	else {
 		throw ContainerException("Выход за пределы массива");
@@ -15,7 +15,7 @@ void StackMassive::Push(const std::string new_element) { // O(1)
 
 void StackMassive::MultiPush(const int count, std::string *elements) {
 
-	if (count + sizeOfStack <= stackMemory) {
+	if (count + _sizeOfStack <= _stackMemory) {
 
 		for (int i = 0; i < count; i++) {
 			Push(elements[i]);
@@ -32,8 +32,8 @@ void StackMassive::MultiPush(const int count, std::string *elements) {
 }
 
 void StackMassive::Pop() { // O(1)
-	if (sizeOfStack > 0) {
-		sizeOfStack--;
+	if (_sizeOfStack > 0) {
+		_sizeOfStack--;
 	}
 	else {
 		throw ContainerException("Стек пуст");
@@ -42,7 +42,7 @@ void StackMassive::Pop() { // O(1)
 
 void StackMassive::MultiPop(const int count) {
 	for (int i = 0; i < count; i++) {
-		if (sizeOfStack) {
+		if (_sizeOfStack) {
 			Pop();
 		}
 		else {
@@ -52,16 +52,16 @@ void StackMassive::MultiPop(const int count) {
 }
 
 bool StackMassive::Empty() const { // O(1)
-	return sizeOfStack == 0;
+	return _sizeOfStack == 0;
 }
 
 std::string StackMassive::ToString() const
 {
 	std::ostringstream out;
-	std::string* array = StackMassive::array;
+	std::string* array = StackMassive::_array;
 	
 	
-	for (int begin = 0; begin < sizeOfStack; begin++) {
+	for (int begin = 0; begin < _sizeOfStack; begin++) {
 		out << "[" << array[begin] << "] ";
 	}
 
@@ -70,8 +70,8 @@ std::string StackMassive::ToString() const
 
 
 std::string StackMassive::Back() const { // O(1)
-	if (sizeOfStack > 0) {
-		return array[0];
+	if (_sizeOfStack > 0) {
+		return _array[0];
 	}
 	else {
 		throw ContainerException("Последний элемент не найден");

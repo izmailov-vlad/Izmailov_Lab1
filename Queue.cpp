@@ -5,9 +5,9 @@
 
 
 void Queue::Push (const std::string element) {
-	if (queueSize < queueMemory) {
-		queue[queueSize] = element;
-		queueSize++;
+	if (_queueSize < _queueMemory) {
+		_queue[_queueSize] = element;
+		_queueSize++;
 	}
 	else {
 		throw ContainerException("Переполнение");
@@ -15,7 +15,7 @@ void Queue::Push (const std::string element) {
 }
 
 void Queue::MultiPush(const int count, std::string *elements) {
-	if (count + queueSize <= queueMemory) {
+	if (count + _queueSize <= _queueMemory) {
 
 		for (int i = 0; i < count; i++) {
 			Push(elements[i]);
@@ -30,7 +30,7 @@ void Queue::MultiPush(const int count, std::string *elements) {
 
 void Queue::MultiPop(const int count) {
 	for (int i = 0; i < count; i++) {
-		if (queueSize) {
+		if (_queueSize) {
 			Pop();
 		}
 		else {
@@ -46,10 +46,10 @@ Container* Queue::Clone() const
 
 std::string Queue::ToString() const {
 	std::ostringstream out;
-	std::string* array = queue;
+	std::string* array = _queue;
 	
 
-	for (int begin = 0; begin < queueSize; begin++) {
+	for (int begin = 0; begin < _queueSize; begin++) {
 		out << "[" << array[begin] << "] ";
 	}
 
@@ -57,29 +57,29 @@ std::string Queue::ToString() const {
 }
 
 void Queue::Pop() {
-	for (int i = 1; i < queueSize; i++) {
-		queue[i - 1] = queue[i];
+	for (int i = 1; i < _queueSize; i++) {
+		_queue[i - 1] = _queue[i];
 	}
-	queue[queueSize - 1] = "";
-	queueSize--;
+	_queue[_queueSize - 1] = "";
+	_queueSize--;
 }
 
 std::string Queue::Front() const {
-	if (queueSize != 0) {
-		return queue[0];
+	if (_queueSize != 0) {
+		return _queue[0];
 	}
 
 	throw ContainerException("Стек пуст");
 }
 
 std::string Queue::Back() const {
-	if (queueSize != 0) {
-		return queue[queueSize - 1];
+	if (_queueSize != 0) {
+		return _queue[_queueSize - 1];
 	}
 
 	throw ContainerException("Стек пуст");
 }
 
 bool Queue::Empty() const {
-	return queueSize == 0;
+	return _queueSize == 0;
 }

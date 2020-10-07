@@ -7,16 +7,16 @@ class Queue : public Container {
 public:
 
 	Queue(int sizeQueue) {
-		queue = new std::string[sizeQueue];
-		queueMemory = sizeQueue;
+		_queue = new std::string[sizeQueue];
+		_queueMemory = sizeQueue;
 	}
 
-	Queue(const Queue& object) : Queue(object.queueMemory) {
-		if (object.queue != nullptr) {
-			this->queue = new std::string[object.queueMemory];
-			this->queueMemory = object.queueMemory;
-			this->queueSize = object.queueSize;
-			std::copy(object.queue, object.queue + object.queueMemory, queue);
+	Queue(const Queue& object) : Queue(object._queueMemory) {
+		if (object._queue != nullptr) {
+			this->_queue = new std::string[object._queueMemory];
+			this->_queueMemory = object._queueMemory;
+			this->_queueSize = object._queueSize;
+			std::copy(object._queue, object._queue + object._queueMemory, _queue);
 		}
 	}
 
@@ -26,15 +26,15 @@ public:
 			return *this;
 		}
 
-		if (queue != nullptr) {
-			delete[] queue;
+		if (_queue != nullptr) {
+			delete[] _queue;
 		}
 
-		if (object.queue != nullptr) {
-			queue = new std::string[object.queueMemory];
-			this->queueMemory = object.queueMemory;
-			this->queueSize = object.queueSize;
-			std::copy(object.queue, object.queue + object.queueMemory, queue);
+		if (object._queue != nullptr) {
+			_queue = new std::string[object._queueMemory];
+			this->_queueMemory = object._queueMemory;
+			this->_queueSize = object._queueSize;
+			std::copy(object._queue, object._queue + object._queueMemory, _queue);
 		}
 
 		return *this;
@@ -50,17 +50,17 @@ public:
 	std::string Front() const;
 	std::string Back() const override;
 	std::string GetType() const override {
-		return type;
+		return _type;
 	}
 
 	bool Empty() const override;
 
 	~Queue() {
-		delete[] queue;
+		delete[] _queue;
 	}
 private:
-	std::string type = "Queue";
-	std::string* queue;
-	int queueSize = 0;
-	int queueMemory;
+	std::string _type = "Queue";
+	std::string* _queue;
+	int _queueSize = 0;
+	int _queueMemory;
 };

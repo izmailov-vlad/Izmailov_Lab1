@@ -1,7 +1,7 @@
 #include "ContainerException.h"
 #include "ConsoleIteractor.h"
 #include <iostream>
-#define CONTAINER_SIZE 100
+
 
 using namespace std;
 
@@ -89,7 +89,7 @@ Container* ConsoleIteractor::CreateContainer(Container *container, Factory facto
 				cout << "  2. Massive -> Стек на основе массива" << endl;
 				
 				do {
-					cout << "Введите номер команды: ";
+					cout << "  Введите номер команды: ";
 					cin >> choose;
 					switch (choose) {
 						case 1: {
@@ -101,7 +101,7 @@ Container* ConsoleIteractor::CreateContainer(Container *container, Factory facto
 							break;
 						}
 						default: {
-							cout << "Неверная команда, попробуйте еще раз" << endl;
+							cout << "  Неверная команда, попробуйте еще раз" << endl;
 						}
 					}
 					
@@ -119,10 +119,15 @@ Container* ConsoleIteractor::CreateContainer(Container *container, Factory facto
 }
 
 void ConsoleIteractor::PrintAllContainers(Container **container) {
-	if (containerSize) {
-		for (int i = 0; i < containerSize; i++) {
+	if (_containerSize) {
+		for (int i = 0; i < _containerSize; i++) {
 			cout << endl << container[i]->GetType() << ": ";
-			cout << container[i]->ToString();
+			if (!container[i]->Empty()) {
+				cout << container[i]->ToString();
+			}
+			else {
+				cout << "Контейнер пуст" << endl;
+			}
 			cout << endl << endl;
 		}
 		return;
@@ -134,7 +139,7 @@ void ConsoleIteractor::InputAction() {
 	setlocale(LC_ALL, "Russian");
 
 	Factory factory;
-	Container* container[CONTAINER_SIZE];
+	Container* container[_CONTAINER_SIZE];
 	
 	string element;
 	
@@ -142,7 +147,7 @@ void ConsoleIteractor::InputAction() {
 	int count;
 
 
-	for (int i = 0; i < CONTAINER_SIZE; i++) {
+	for (int i = 0; i < _CONTAINER_SIZE; i++) {
 		container[i] = nullptr;
 	}
 	
@@ -151,10 +156,10 @@ void ConsoleIteractor::InputAction() {
 	while (action != 0) {
 
 		try {
-			cout << endl << "#" << indexOfContainer << ": Введите команду: ";
+			cout << endl << "#" << _indexOfContainer << ": Введите команду: ";
 			cin >> action;
 
-			if ((action > 0 && action < 8) && containerSize == 0) {
+			if ((action > 0 && action < 8) && _containerSize == 0) {
 				throw ContainerException("Нет ни одного контейнера");
 			}
 
@@ -162,13 +167,13 @@ void ConsoleIteractor::InputAction() {
 
 				case -1:
 				{
-					container[containerSize] = CreateContainer(*container, factory);
-					containerSize++;
+					container[_containerSize] = CreateContainer(*container, factory);
+					_containerSize++;
 					break;
 				}
 				case -2:
 				{
-					if (containerSize) {
+					if (_containerSize) {
 						PrintAllContainers(container);
 					}
 					else throw ContainerException("Нет ни одного контейнера");
@@ -177,12 +182,12 @@ void ConsoleIteractor::InputAction() {
 				}
 				case -3:
 				{
-					int last_index = indexOfContainer;
+					int last_index = _indexOfContainer;
 					cout << "Введите индекс контейнера: ";
-					cin >> indexOfContainer;
+					cin >> _indexOfContainer;
 
-					if (container[indexOfContainer] == nullptr) {
-						indexOfContainer = last_index;
+					if (container[_indexOfContainer] == nullptr) {
+						_indexOfContainer = last_index;
 						throw ContainerException("Контейнера с таким индексом не существует");
 					}
 					break;
@@ -193,7 +198,7 @@ void ConsoleIteractor::InputAction() {
 						cout << "Введите элемент : ";
 						cin >> element;
 						cout << endl;
-						container[indexOfContainer]->Push(element);
+						container[_indexOfContainer]->Push(element);
 					
 					
 					break;
@@ -208,7 +213,7 @@ void ConsoleIteractor::InputAction() {
 						for (int i = 0; i < count; i++) {
 							cin >> elements[i];
 						}
-						container[indexOfContainer]->MultiPush(count, elements);
+						container[_indexOfContainer]->MultiPush(count, elements);
 					
 					break;
 				}
@@ -216,7 +221,7 @@ void ConsoleIteractor::InputAction() {
 				{
 					cout << endl;
 
-					container[indexOfContainer]->Pop();
+					container[_indexOfContainer]->Pop();
 					cout << endl;
 					break;
 				}
@@ -225,14 +230,14 @@ void ConsoleIteractor::InputAction() {
 					cout << "Введите количество удаляемых элементов: ";
 					cin >> count;
 
-					container[indexOfContainer]->MultiPop(count);
+					container[_indexOfContainer]->MultiPop(count);
 
 					break;
 				}
 				case 5:
 				{
-					if (container[indexOfContainer]) {
-						if (container[indexOfContainer]->Empty()) {
+					if (container[_indexOfContainer]) {
+						if (container[_indexOfContainer]->Empty()) {
 							cout << endl << "Контейнер пуст" << endl << endl;
 						}
 						else {
@@ -247,9 +252,9 @@ void ConsoleIteractor::InputAction() {
 				}
 				case 6:
 				{
-					if (container[indexOfContainer]) {
-						if (!container[indexOfContainer]->Empty()) {
-							cout << endl << container[indexOfContainer]->GetType() << ": " << container[indexOfContainer]->ToString() << endl;
+					if (container[_indexOfContainer]) {
+						if (!container[_indexOfContainer]->Empty()) {
+							cout << endl << container[_indexOfContainer]->GetType() << ": " << container[_indexOfContainer]->ToString() << endl;
 						}
 						else {
 							cout << "Стек пуст" << endl;
@@ -261,7 +266,7 @@ void ConsoleIteractor::InputAction() {
 				}
 				case 7:
 				{
-					cout << endl << "[" << container[indexOfContainer]->Back() << "]" << endl << endl;
+					cout << endl << "[" << container[_indexOfContainer]->Back() << "]" << endl << endl;
 					break;
 				}
 
@@ -291,7 +296,7 @@ void ConsoleIteractor::InputAction() {
 		}
 	}
 
-	for (int i = 0; i < containerSize; i++) {
+	for (int i = 0; i < _containerSize; i++) {
 		delete container[i];
 	}
 }

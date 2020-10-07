@@ -11,8 +11,10 @@ public:
 	void TestForConstructors();
 	void TestForOperators();
 	int InputSize();
-	int indexOfContainer = 0;
+	
 private:
-	int containerSize = 0;
+	int _indexOfContainer = 0;
+	int _containerSize = 0;
+	static const int _CONTAINER_SIZE = 100;
 	
 };

@@ -19,20 +19,20 @@ class StackList : public Container {
 public:
 
 	StackList() {
-		head = NULL;
+		_head = NULL;
 	}
 	
 
 	StackList(const StackList& object) : StackList() {
-		if (object.head != nullptr) {
+		if (object._head != nullptr) {
 
-			Node* tmp1 = object.head;
-			Node* tmp2 = head;
+			Node* tmp1 = object._head;
+			Node* tmp2 = _head;
 			while (tmp1->next != nullptr) {
 				tmp1 = tmp1->next;
 			}
 
-			while (tmp1 != object.head) {
+			while (tmp1 != object._head) {
 				this->Push(tmp1->element);
 				tmp1 = tmp1->prev;
 			}
@@ -49,21 +49,21 @@ public:
 			return *this;
 		}
 
-		if (head != nullptr) {
-			while(sizeOfStack) {
+		if (_head != nullptr) {
+			while(_sizeOfStack) {
 				Pop();
 			}
 		}
 
-		if (object.head != nullptr) {
+		if (object._head != nullptr) {
 			
-			Node* tmp1 = object.head;
-			Node* tmp2 = head;
+			Node* tmp1 = object._head;
+			Node* tmp2 = _head;
 			while (tmp1->next != nullptr) {
 				tmp1 = tmp1->next;
 			}
 
-			while (tmp1 != object.head) {
+			while (tmp1 != object._head) {
 				this->Push(tmp1->element);
 				tmp1 = tmp1->prev;
 			}
@@ -76,8 +76,8 @@ public:
 		return *this;
 	}
 
-	Node* getHead() const {
-		return head;
+	Node* GetHead() const {
+		return _head;
 	}
 
 	void Push(const std::string new_element) override;
@@ -97,25 +97,25 @@ public:
 	Container* Clone() const override;
 
 	std::string GetType() const override {
-		return type;
+		return _type;
 	}
 	
 
 
-	void setHead(Node* head) {
-		this->head = head;
+	void SetHead(Node* head) {
+		this->_head = head;
 	}
 
-	int size() const {
-		return sizeOfStack;
+	int Size() const {
+		return _sizeOfStack;
 	}
 
 	~StackList() {
-		while (size())
+		while (Size())
 			Pop();
 	}
 private:
-	std::string type = "StackList";
-	int sizeOfStack = 0;
-	Node* head;
+	std::string _type = "StackList";
+	int _sizeOfStack = 0;
+	Node* _head;
 };

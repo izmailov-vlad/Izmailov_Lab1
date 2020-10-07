@@ -1,4 +1,4 @@
-﻿  Izmaylov_lab1.cpp
+﻿  ConsoleIteractor.cpp
 LINK : warning LNK4075: не учитывается "/INCREMENTAL" из-за спецификации "/PROFILE"
 ConsoleIteractor.obj : warning LNK4075: не учитывается "/EDITANDCONTINUE" из-за спецификации "/OPT:REF"
   Izmaylov_lab1.vcxproj -> C:\Users\User\source\repos\Izmaylov_lab1\Izmailov_Lab1\Debug\Izmaylov_lab1.exe

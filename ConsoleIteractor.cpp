@@ -23,11 +23,60 @@ void ConsoleIteractor::Actions()
 	cout << "0. exit -> Выход из программы" << endl;
 }
 
+void ConsoleIteractor::TestForConstructors()
+{
+	std::string* elements = new std::string[5];
+	Container* container1 = new StackList();
+
+	for (int i = 0; i < 5; i++) {
+		cin >> elements[i];
+	}
+
+	container1->MultiPush(5, elements);
+
+	cout << container1->ToString() << endl;
+
+	Container* container2 = container1->Clone();
+	
+	cout << container2->ToString() << endl;
+
+	delete container1;
+	delete container2;
+}
+
+void ConsoleIteractor::TestForOperators() {
+
+	std::string* elements1 = new std::string[5];
+
+	Queue container1(5);
+	for (int i = 0; i < 5; i++) {
+		cin >> elements1[i];
+	}
+	container1.MultiPush(5, elements1);
+
+	Queue container2(5);
+	
+	std::string* elements2 = new std::string[5];
+	for (int i = 0; i < 5; i++) {
+		cin >> elements2[i];
+	}
+	container2.MultiPush(5, elements2);
+
+
+	cout << container1.ToString() << endl;
+	cout << container2.ToString() << endl;
+	
+	container1 = container2;
+
+	cout << container1.ToString() << endl;
+	cout << container2.ToString() << endl;
+
+}
+
 
 
 Container* ConsoleIteractor::CreateContainer(Container *container, Factory factory) {
 	int choose = -1;
-	string type = "";
 	cout << "1. Stack" << endl;
 	cout << "2. Queue" << endl;
 	while (choose != 1 && choose != 2) {
@@ -36,21 +85,27 @@ Container* ConsoleIteractor::CreateContainer(Container *container, Factory facto
 		switch (choose) {
 			case 1:
 			{
-				cout << "List -> Стек на основе списка" << endl;
-				cout << "Massive -> Стек на основе массива" << endl;
-
-				while (type != "List" && type != "Massive") {
-					cin >> type;
-					if (type == "List") {
-						container = factory.CreateStackList();
+				cout << "  1. List -> Стек на основе списка" << endl;
+				cout << "  2. Massive -> Стек на основе массива" << endl;
+				
+				do {
+					cout << "Введите номер команды: ";
+					cin >> choose;
+					switch (choose) {
+						case 1: {
+							container = factory.CreateStackList();
+							break;
+						}
+						case 2:{
+							container = factory.CreateStackMassive(InputSize());
+							break;
+						}
+						default: {
+							cout << "Неверная команда, попробуйте еще раз" << endl;
+						}
 					}
-					else if (type == "Massive") {
-						container = factory.CreateStackMassive(InputSize());
-					}
-					else {
-						cout << "Неверная команда, попробуйте еще раз" << endl;
-					}
-				}
+					
+				} while (choose != 1 && choose != 2);
 				break;
 			}
 			case 2:
@@ -64,25 +119,28 @@ Container* ConsoleIteractor::CreateContainer(Container *container, Factory facto
 }
 
 void ConsoleIteractor::PrintAllContainers(Container **container) {
-	for (int i = 0; i < containerSize; i++) {
-		cout << container[i]->ToString();
-		cout << endl << endl;
+	if (containerSize) {
+		for (int i = 0; i < containerSize; i++) {
+			cout << endl << container[i]->GetType() << ": ";
+			cout << container[i]->ToString();
+			cout << endl << endl;
+		}
+		return;
 	}
+	throw ContainerException("Нет ни одного контейнера");
 }
 
 void ConsoleIteractor::InputAction() {
 	setlocale(LC_ALL, "Russian");
 
 	Factory factory;
-	int count;
-	std::string syscomand = "";
-	int action = -1;
-
-	string element;
-	
-
 	Container* container[CONTAINER_SIZE];
 	
+	string element;
+	
+	int action = -1;
+	int count;
+
 
 	for (int i = 0; i < CONTAINER_SIZE; i++) {
 		container[i] = nullptr;
@@ -93,123 +151,139 @@ void ConsoleIteractor::InputAction() {
 	while (action != 0) {
 
 		try {
-			cout << endl << "Введите команду: ";
+			cout << endl << "#" << indexOfContainer << ": Введите команду: ";
 			cin >> action;
 
+			if ((action > 0 && action < 8) && containerSize == 0) {
+				throw ContainerException("Нет ни одного контейнера");
+			}
+
 			switch (action) {
-			
-			case -1: 
-			{
-				container[containerSize] = CreateContainer(*container, factory);
-				containerSize++;
-				break;
-			}
-			case -2: 
-			{
-				PrintAllContainers(container);
-				/*for (int i = 0; i < containerSize; i++) {
-					if (container[i]) {
-						cout << container[i]->ToString();
+
+				case -1:
+				{
+					container[containerSize] = CreateContainer(*container, factory);
+					containerSize++;
+					break;
+				}
+				case -2:
+				{
+					if (containerSize) {
+						PrintAllContainers(container);
+					}
+					else throw ContainerException("Нет ни одного контейнера");
+					
+					break;
+				}
+				case -3:
+				{
+					int last_index = indexOfContainer;
+					cout << "Введите индекс контейнера: ";
+					cin >> indexOfContainer;
+
+					if (container[indexOfContainer] == nullptr) {
+						indexOfContainer = last_index;
+						throw ContainerException("Контейнера с таким индексом не существует");
+					}
+					break;
+				}
+				
+				case 1:
+				{
+						cout << "Введите элемент : ";
+						cin >> element;
 						cout << endl;
-					}
-				}*/
-				break;
-			}
-			case -3: 
-			{
-				cout << "Введите индекс контейнера: ";
-				cin >> indexOfContainer;
-				if (container[indexOfContainer] == nullptr) {
-					throw ("Контейнера с таким индексом не существует");
+						container[indexOfContainer]->Push(element);
+					
+					
+					break;
 				}
-				break;
-			}
-			case 1:
-			{
-				cout << "Введите элемент : ";
-				cin >> element;
-				cout << endl;
-				container[indexOfContainer]->push(element);
-				break;
-			}
 
-			case 2:
-			{
-				cout << "Введите количество элементов: ";
-				cin >> count;
-				std::string* elements = new std::string[count];
-				for (int i = 0; i < count; i++) {
-					cin >> elements[i];
+				case 2:
+				{
+					
+						cout << "Введите количество элементов: ";
+						cin >> count;
+						std::string* elements = new std::string[count];
+						for (int i = 0; i < count; i++) {
+							cin >> elements[i];
+						}
+						container[indexOfContainer]->MultiPush(count, elements);
+					
+					break;
 				}
-				container[indexOfContainer]->MultiPush(count, elements);
-				break;
-			}
-			case 3:
-			{
-				cout << endl;
+				case 3:
+				{
+					cout << endl;
 
-				container[indexOfContainer]->pop();
-				cout << endl;
-				break;
-			}
-			case 4:
-			{
-				cout << "Введите количество удаляемых элементов: ";
-				cin >> count;
+					container[indexOfContainer]->Pop();
+					cout << endl;
+					break;
+				}
+				case 4:
+				{
+					cout << "Введите количество удаляемых элементов: ";
+					cin >> count;
 
-				container[indexOfContainer]->MultiPop(count);
+					container[indexOfContainer]->MultiPop(count);
 
-				break;
-			}
-			case 5:
-			{
-				if (container[indexOfContainer]) {
-					if (container[indexOfContainer]->Empty()) {
-						cout << endl << "Контейнер пуст" << endl << endl;
+					break;
+				}
+				case 5:
+				{
+					if (container[indexOfContainer]) {
+						if (container[indexOfContainer]->Empty()) {
+							cout << endl << "Контейнер пуст" << endl << endl;
+						}
+						else {
+							cout << endl << "Контейнер не пуст" << endl << endl;
+						} 
 					}
 					else {
-						cout << endl << "Контейнер не пуст" << endl << endl;
+						throw ContainerException("Контейнера не существует");
 					}
+					
+					break;
 				}
-				break;
-			}
-			case 6:
-			{
-				if (container[indexOfContainer]) {
-					if (!container[indexOfContainer]->Empty()) {
-						cout << container[indexOfContainer]->ToString() << endl;
+				case 6:
+				{
+					if (container[indexOfContainer]) {
+						if (!container[indexOfContainer]->Empty()) {
+							cout << endl << container[indexOfContainer]->GetType() << ": " << container[indexOfContainer]->ToString() << endl;
+						}
+						else {
+							cout << "Стек пуст" << endl;
+						}
 					}
-					else {
-						cout << "Стек пуст" << endl;
-					}
-				}
-				break;
+					
+					break;
 
-			}
-			case 7:
-			{
-				cout << endl << "[" << container[indexOfContainer]->back() << "]" << endl << endl;
-				break;
-			}
-			case 8:
-			{
-				system("cls");
-				Actions();
-				break;
-			}
-			case 9:
-			{
-				Actions();
-				break;
-			}
-			case 0:
-			{
-				break;
-			}
-			default:
-			{
-				cout << "Неверная команда, попробуйте еще раз" << endl;
-			}
+				}
+				case 7:
+				{
+					cout << endl << "[" << container[indexOfContainer]->Back() << "]" << endl << endl;
+					break;
+				}
+
+				case 8:
+				{
+					system("cls");
+					Actions();
+					break;
+				}
+				case 9:
+				{
+					Actions();
+					break;
+				}
+				case 0:
+				{
+					break;
+				}
+				default:
+				{
+					cout << "Неверная команда, попробуйте еще раз" << endl;
+				}
 			}
 		}
 		catch (ContainerException& ex) {

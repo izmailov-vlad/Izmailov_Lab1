@@ -8,7 +8,8 @@ public:
 	void PrintAllContainers(Container** container);
 	void InputAction();
 	void Actions();
-	void Test();
+	void TestForConstructors();
+	void TestForOperators();
 	int InputSize();
 	int indexOfContainer = 0;
 private:

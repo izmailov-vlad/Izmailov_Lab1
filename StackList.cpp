@@ -3,20 +3,20 @@
 #include <iostream>
 #include <sstream>
 
-void StackList::push(const std::string &new_element) { //O(1)
+void StackList::Push(const std::string new_element) { //O(1)
 		Node* node = new Node(new_element, head);
 		sizeOfStack++;
 		head = node;
 }
 
-void StackList::MultiPush(const int& count, std::string* elements) {
+void StackList::MultiPush(const int count, std::string* elements) {
 	for (int i = 0; i < count; i++) {
-		push(elements[i]);
+		Push(elements[i]);
 	}
 	delete[]elements;
 }
 
-void StackList::pop() {
+void StackList::Pop() {
 	if (sizeOfStack) {//O(1)
 		sizeOfStack--;
 		Node* node = head;
@@ -32,21 +32,21 @@ std::string StackList::ToString() const
 {
 	std::ostringstream out;
 	Node* var = head;
-	out << "\n";
+	
 	while (var->next != nullptr) {
 		out << "[" << var->element << "] ";
 		var = var->next;
 	}
-	out << "[" << var->element << "] \n\n";
+	out << "[" << var->element << "] \n";
 
 	return out.str();
 }
 
 
-void StackList::MultiPop(const int& count) {
+void StackList::MultiPop(const int count) {
 	for (int i = 0; i < count; i++) {
 		if (sizeOfStack) {
-			pop();
+			Pop();
 		}
 		else {
 			throw ContainerException("Все элементы удалены");
@@ -59,7 +59,7 @@ bool StackList::Empty() const{ //O(1)
 }
 
 
-std::string StackList::back() const{ 
+std::string StackList::Back() const{ 
 	if (sizeOfStack > 0) {
 		Node* node = head;
 		while (node->next != nullptr) {
@@ -70,6 +70,11 @@ std::string StackList::back() const{
 	else {
 		throw ContainerException("Последний элемент не найден");
 	}
+}
+
+Container* StackList::Clone() const
+{
+	return new StackList(*this);
 }
 
 

@@ -6,7 +6,6 @@
 class Queue : public Container {
 public:
 
-	Queue() = default;
 	Queue(int sizeQueue) {
 		queue = new std::string[sizeQueue];
 		queueMemory = sizeQueue;
@@ -30,6 +29,7 @@ public:
 		if (queue != nullptr) {
 			delete[] queue;
 		}
+
 		if (object.queue != nullptr) {
 			queue = new std::string[object.queueMemory];
 			this->queueMemory = object.queueMemory;
@@ -40,14 +40,18 @@ public:
 		return *this;
 	}
 
-	void MultiPush(const int &count, std::string *elements) override;
-	void push(const std::string& element) override;
-	void MultiPop(const int &count) override;
-	void pop() override;
+	void MultiPush(const int count, std::string *elements) override;
+	void Push(const std::string element) override;
+	void MultiPop(const int count) override;
+	Container* Clone() const override;
+	void Pop() override;
 
 	std::string ToString() const override;
 	std::string Front() const;
-	std::string back() const override;
+	std::string Back() const override;
+	std::string GetType() const override {
+		return type;
+	}
 
 	bool Empty() const override;
 
@@ -55,6 +59,7 @@ public:
 		delete[] queue;
 	}
 private:
+	std::string type = "Queue";
 	std::string* queue;
 	int queueSize = 0;
 	int queueMemory;

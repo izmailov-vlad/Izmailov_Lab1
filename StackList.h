@@ -5,10 +5,13 @@
 struct Node {
 	std::string element;
 	Node* next;
-
+	Node* prev;
 	Node(std::string new_el, Node* nextNode) {
 		element = new_el;
 		next = nextNode;
+		if (nextNode) {
+			nextNode->prev = this;
+		}
 	}
 };
 
@@ -22,9 +25,21 @@ public:
 
 	StackList(const StackList& object) : StackList() {
 		if (object.head != nullptr) {
-			Node* tmp = object.head;
-			this->sizeOfStack = object.sizeOfStack;
-			std::copy(object.head, object.head + object.sizeOfStack, head);
+
+			Node* tmp1 = object.head;
+			Node* tmp2 = head;
+			while (tmp1->next != nullptr) {
+				tmp1 = tmp1->next;
+			}
+
+			while (tmp1 != object.head) {
+				this->Push(tmp1->element);
+				tmp1 = tmp1->prev;
+			}
+
+
+			this->Push(tmp1->element);
+
 		}
 	}
 
@@ -35,13 +50,27 @@ public:
 		}
 
 		if (head != nullptr) {
-			for (int i = 0; i < sizeOfStack; i++) {
-				pop();
+			while(sizeOfStack) {
+				Pop();
 			}
 		}
+
 		if (object.head != nullptr) {
-			head = NULL;
-			std::copy(object.head, object.head + object.sizeOfStack, head);
+			
+			Node* tmp1 = object.head;
+			Node* tmp2 = head;
+			while (tmp1->next != nullptr) {
+				tmp1 = tmp1->next;
+			}
+
+			while (tmp1 != object.head) {
+				this->Push(tmp1->element);
+				tmp1 = tmp1->prev;
+			}
+
+
+			this->Push(tmp1->element);
+
 		}
 
 		return *this;
@@ -51,20 +80,25 @@ public:
 		return head;
 	}
 
-	void push(const std::string &new_element) override;
+	void Push(const std::string new_element) override;
 
-	void MultiPush(const int& count, std::string *elements) override;
+	void MultiPush(const int count, std::string *elements) override;
 
-	void MultiPop(const int& count) override;
+	void MultiPop(const int count) override;
 
-	void pop() override;
+	void Pop() override;
 
 	std::string ToString() const override;
 
 	bool Empty() const override;
 
-	std::string back() const override;
+	std::string Back() const override;
 
+	Container* Clone() const override;
+
+	std::string GetType() const override {
+		return type;
+	}
 	
 
 
@@ -78,9 +112,10 @@ public:
 
 	~StackList() {
 		while (size())
-			pop();
+			Pop();
 	}
 private:
+	std::string type = "StackList";
 	int sizeOfStack = 0;
 	Node* head;
 };

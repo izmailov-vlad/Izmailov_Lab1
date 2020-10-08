@@ -121,7 +121,7 @@ Container* ConsoleIteractor::CreateContainer(Container *container, Factory facto
 void ConsoleIteractor::PrintAllContainers(Container **container) {
 	if (_containerSize) {
 		for (int i = 0; i < _containerSize; i++) {
-			cout << endl << container[i]->GetType() << ": ";
+			cout << endl << i <<"# " << container[i]->GetType() << ": ";
 			if (!container[i]->Empty()) {
 				cout << container[i]->ToString();
 			}

@@ -2,13 +2,13 @@
 #include "ContainerException.h"
 #include <iostream>
 
-void StackMassive::Push(const std::string new_element) { // O(1)
+void StackMassive::Push(const std::string& new_element) { // O(1)
 	if (_sizeOfStack < _stackMemory) {
 		_array[_sizeOfStack] = new_element;
 		_sizeOfStack++;
 	}
 	else {
-		throw ContainerException("Выход за пределы массива");
+		throw std::exception("Выход за пределы массива");
 	}
 }
 
@@ -24,7 +24,7 @@ void StackMassive::MultiPush(const int count, std::string *elements) {
 		delete[]elements;
 	}
 	else {
-		throw ContainerException("Невозможно добавить такое количество элементов");
+		throw std::exception("Невозможно добавить такое количество элементов");
 	}
 
 
@@ -36,7 +36,7 @@ void StackMassive::Pop() { // O(1)
 		_sizeOfStack--;
 	}
 	else {
-		throw ContainerException("Стек пуст");
+		throw std::exception("Стек пуст");
 	}
 }
 
@@ -46,7 +46,7 @@ void StackMassive::MultiPop(const int count) {
 			Pop();
 		}
 		else {
-			throw ContainerException("Все элементы удалены");
+			throw std::exception("Все элементы удалены");
 		}
 	}
 }
@@ -57,6 +57,7 @@ bool StackMassive::Empty() const { // O(1)
 
 std::string StackMassive::ToString() const
 {
+	std::string ans;
 	std::ostringstream out;
 	std::string* array = StackMassive::_array;
 	
@@ -64,17 +65,17 @@ std::string StackMassive::ToString() const
 	for (int begin = 0; begin < _sizeOfStack; begin++) {
 		out << "[" << array[begin] << "] ";
 	}
-
-	return out.str();
+	ans = out.str();
+	return ans;
 }
 
 
-std::string StackMassive::Back() const { // O(1)
+std::string& StackMassive::Back() const { // O(1)
 	if (_sizeOfStack > 0) {
 		return _array[0];
 	}
 	else {
-		throw ContainerException("Последний элемент не найден");
+		throw std::exception("Последний элемент не найден");
 	}
 }
 

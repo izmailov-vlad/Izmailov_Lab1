@@ -23,65 +23,71 @@ void ConsoleIteractor::Actions()
 	cout << "0. exit -> Выход из программы" << endl;
 }
 
-void ConsoleIteractor::TestForConstructors()
-{
-	std::string* elements = new std::string[5];
-	Container* container1 = new StackList();
+//void ConsoleIteractor::TestForConstructors()
+//{
+//	std::string* elements = new std::string[5];
+//	Container* container1 = new StackList();
+//
+//	for (int i = 0; i < 5; i++) {
+//		cin >> elements[i];
+//	}
+//
+//	container1->MultiPush(5, elements);
+//
+//	cout << container1->ToString() << endl;
+//
+//	Container* container2 = container1->Clone();
+//	
+//	cout << container2->ToString() << endl;
+//
+//	delete container1;
+//	delete container2;
+//}
 
-	for (int i = 0; i < 5; i++) {
-		cin >> elements[i];
-	}
-
-	container1->MultiPush(5, elements);
-
-	cout << container1->ToString() << endl;
-
-	Container* container2 = container1->Clone();
-	
-	cout << container2->ToString() << endl;
-
-	delete container1;
-	delete container2;
-}
-
-void ConsoleIteractor::TestForOperators() {
-
-	std::string* elements1 = new std::string[5];
-
-	Queue container1(5);
-	for (int i = 0; i < 5; i++) {
-		cin >> elements1[i];
-	}
-	container1.MultiPush(5, elements1);
-
-	Queue container2(5);
-	
-	std::string* elements2 = new std::string[5];
-	for (int i = 0; i < 5; i++) {
-		cin >> elements2[i];
-	}
-	container2.MultiPush(5, elements2);
-
-
-	cout << container1.ToString() << endl;
-	cout << container2.ToString() << endl;
-	
-	container1 = container2;
-
-	cout << container1.ToString() << endl;
-	cout << container2.ToString() << endl;
-
-}
+//void ConsoleIteractor::TestForOperators() {
+//
+//	std::string* elements1 = new std::string[5];
+//
+//	Queue container1(5);
+//	for (int i = 0; i < 5; i++) {
+//		cin >> elements1[i];
+//	}
+//	container1.MultiPush(5, elements1);
+//
+//	Queue container2(5);
+//	
+//	std::string* elements2 = new std::string[5];
+//	for (int i = 0; i < 5; i++) {
+//		cin >> elements2[i];
+//	}
+//	container2.MultiPush(5, elements2);
+//
+//
+//	cout << container1.ToString() << endl;
+//	cout << container2.ToString() << endl;
+//	
+//	container1 = container2;
+//
+//	cout << container1.ToString() << endl;
+//	cout << container2.ToString() << endl;
+//
+//}
 
 
 
 Container* ConsoleIteractor::CreateContainer(Container *container, Factory factory) {
+
 	int choose = -1;
+	int type = 0;
+	int size = 0;
+
 	cout << "1. Stack" << endl;
 	cout << "2. Queue" << endl;
+
 	while (choose != 1 && choose != 2) {
 		
 		cin >> choose;
+
 		switch (choose) {
 			case 1:
 			{
@@ -93,11 +99,13 @@ Container* ConsoleIteractor::CreateContainer(Container *container, Factory facto
 					cin >> choose;
 					switch (choose) {
 						case 1: {
-							container = factory.CreateStackList();
+							type = 1;
 							break;
 						}
 						case 2:{
-							container = factory.CreateStackMassive(InputSize());
+							size = InputSize();
+							type = 2;
+
 							break;
 						}
 						default: {
@@ -110,10 +118,12 @@ Container* ConsoleIteractor::CreateContainer(Container *container, Factory facto
 			}
 			case 2:
 			{
-				container = factory.CreateQueue(InputSize());
+				type = 3;
+				size = InputSize();
 				break;
 			}
 		}
+		container = factory.CreateContainer(type, size);
 	}
 	return container;
 }
@@ -132,7 +142,7 @@ void ConsoleIteractor::PrintAllContainers(Container **container) {
 		}
 		return;
 	}
-	throw ContainerException("Нет ни одного контейнера");
+	throw std::exception("Нет ни одного контейнера");
 }
 
 void ConsoleIteractor::InputAction() {
@@ -160,7 +170,7 @@ void ConsoleIteractor::InputAction() {
 			cin >> action;
 
 			if ((action > 0 && action < 8) && _containerSize == 0) {
-				throw ContainerException("Нет ни одного контейнера");
+				throw std::exception("Нет ни одного контейнера");
 			}
 
 			switch (action) {
@@ -176,7 +186,7 @@ void ConsoleIteractor::InputAction() {
 					if (_containerSize) {
 						PrintAllContainers(container);
 					}
-					else throw ContainerException("Нет ни одного контейнера");
+					else throw std::exception("Нет ни одного контейнера");
 					
 					break;
 				}
@@ -188,7 +198,7 @@ void ConsoleIteractor::InputAction() {
 
 					if (container[_indexOfContainer] == nullptr) {
 						_indexOfContainer = last_index;
-						throw ContainerException("Контейнера с таким индексом не существует");
+						throw std::exception("Контейнера с таким индексом не существует");
 					}
 					break;
 				}
@@ -245,7 +255,7 @@ void ConsoleIteractor::InputAction() {
 						} 
 					}
 					else {
-						throw ContainerException("Контейнера не существует");
+						throw std::exception("Контейнера не существует");
 					}
 					
 					break;
@@ -266,7 +276,9 @@ void ConsoleIteractor::InputAction() {
 				}
 				case 7:
 				{
-					cout << endl << "[" << container[_indexOfContainer]->Back() << "]" << endl << endl;
+					if (container[_indexOfContainer]) {
+						cout << endl << "[" << container[_indexOfContainer]->Back() << "]" << endl << endl;
+					}
 					break;
 				}
 
@@ -291,8 +303,8 @@ void ConsoleIteractor::InputAction() {
 				}
 			}
 		}
-		catch (ContainerException& ex) {
-			cout << ex.GetError() << endl;
+		catch (std:: exception& ex) {
+			cout << ex.what() << endl;
 		}
 	}
 

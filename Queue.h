@@ -40,16 +40,16 @@ public:
 		return *this;
 	}
 
-	void MultiPush(const int count, std::string *elements) override;
-	void Push(const std::string element) override;
-	void MultiPop(const int count) override;
+	void MultiPush(int count, std::string *elements) override;
+	void Push(const std::string& element) override;
+	void MultiPop(int count) override;
 	Container* Clone() const override;
 	void Pop() override;
 
 	std::string ToString() const override;
-	std::string Front() const;
-	std::string Back() const override;
-	std::string GetType() const override {
+	std::string& Front() const;
+	std::string& Back() const override;
+	const std::string& GetType() const override {
 		return _type;
 	}
 
@@ -59,7 +59,7 @@ public:
 		delete[] _queue;
 	}
 private:
-	std::string _type = "Queue";
+	const std::string _type = "Queue";
 	std::string* _queue;
 	int _queueSize = 0;
 	int _queueMemory;

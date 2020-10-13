@@ -34,8 +34,8 @@
     <Filter Include="Файлы заголовков\Factory">
       <UniqueIdentifier>{10d629fb-ce81-4cc4-be7a-41d37958a23d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Файлы заголовков\Test">
-      <UniqueIdentifier>{8d13954a-40ba-4e13-8c2d-549f58e906d2}</UniqueIdentifier>
+    <Filter Include="Исходные файлы\Factory">
+      <UniqueIdentifier>{e1b5e0ee-1e96-443e-820c-853e7cf554d5}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -54,8 +54,8 @@
     <ClCompile Include="ConsoleIteractor.cpp">
       <Filter>Исходные файлы\Console</Filter>
     </ClCompile>
-    <ClCompile Include="Test.cpp">
-      <Filter>Исходные файлы</Filter>
+    <ClCompile Include="Factory.cpp">
+      <Filter>Исходные файлы\Factory</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -79,9 +79,6 @@
     </ClInclude>
     <ClInclude Include="ConsoleIteractor.h">
       <Filter>Файлы заголовков\Console</Filter>
-    </ClInclude>
-    <ClInclude Include="Test.h">
-      <Filter>Файлы заголовков\Test</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

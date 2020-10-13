@@ -80,11 +80,11 @@ public:
 		return _head;
 	}
 
-	void Push(const std::string new_element) override;
+	void Push(const std::string& new_element) override;
 
-	void MultiPush(const int count, std::string *elements) override;
+	void MultiPush(int count, std::string *elements) override;
 
-	void MultiPop(const int count) override;
+	void MultiPop(int count) override;
 
 	void Pop() override;
 
@@ -92,11 +92,11 @@ public:
 
 	bool Empty() const override;
 
-	std::string Back() const override;
+	std::string& Back() const override;
 
 	Container* Clone() const override;
 
-	std::string GetType() const override {
+	const std::string& GetType() const override {
 		return _type;
 	}
 	
@@ -115,7 +115,7 @@ public:
 			Pop();
 	}
 private:
-	std::string _type = "StackList";
+	const std::string _type = "StackList";
 	int _sizeOfStack = 0;
 	Node* _head;
 };

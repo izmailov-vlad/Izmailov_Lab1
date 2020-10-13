@@ -154,11 +154,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ConsoleIteractor.cpp" />
+    <ClCompile Include="Factory.cpp" />
     <ClCompile Include="Izmaylov_lab1.cpp" />
     <ClCompile Include="Queue.cpp" />
     <ClCompile Include="StackList.cpp" />
     <ClCompile Include="StackMassive.cpp" />
-    <ClCompile Include="Test.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ConsoleIteractor.h" />
@@ -168,7 +168,6 @@
     <ClInclude Include="ContainerException.h" />
     <ClInclude Include="StackList.h" />
     <ClInclude Include="StackMassive.h" />
-    <ClInclude Include="Test.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

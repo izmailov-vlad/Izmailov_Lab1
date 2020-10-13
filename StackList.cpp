@@ -3,7 +3,7 @@
 #include <iostream>
 #include <sstream>
 
-void StackList::Push(const std::string new_element) { //O(1)
+void StackList::Push(const std::string& new_element) { //O(1)
 		Node* node = new Node(new_element, _head);
 		_sizeOfStack++;
 		_head = node;
@@ -24,13 +24,14 @@ void StackList::Pop() {
 		delete node;
 	}
 	else {
-		throw ContainerException("Стек пуст");
+		throw std::exception("Стек пуст");
 	}
 }
 
 std::string StackList::ToString() const
 {
 	std::ostringstream out;
+	std::string ans;
 	Node* var = _head;
 	
 	while (var->next != nullptr) {
@@ -38,8 +39,8 @@ std::string StackList::ToString() const
 		var = var->next;
 	}
 	out << "[" << var->element << "] \n";
-
-	return out.str();
+	ans = out.str();
+	return ans;
 }
 
 
@@ -49,7 +50,7 @@ void StackList::MultiPop(const int count) {
 			Pop();
 		}
 		else {
-			throw ContainerException("Все элементы удалены");
+			throw std::exception("Все элементы удалены");
 		}
 	}
 }
@@ -59,7 +60,7 @@ bool StackList::Empty() const{ //O(1)
 }
 
 
-std::string StackList::Back() const{ 
+std::string& StackList::Back() const{ 
 	if (_sizeOfStack > 0) {
 		Node* node = _head;
 		while (node->next != nullptr) {
@@ -68,7 +69,7 @@ std::string StackList::Back() const{
 		return node->element;
 	}
 	else {
-		throw ContainerException("Последний элемент не найден");
+		throw std::exception("Последний элемент не найден");
 	}
 }
 

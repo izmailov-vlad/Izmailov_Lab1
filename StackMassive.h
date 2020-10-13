@@ -36,23 +36,23 @@ public:
 		return *this;
 	}
 
-	void Push( const std::string new_element) override;
+	void Push( const std::string& new_element) override;
 
-	void MultiPush(const int count, std::string *elements) override;
+	void MultiPush(int count, std::string *elements) override;
 
 	void Pop() override;
 	 
-	void MultiPop(const int count) override;
+	void MultiPop(int count) override;
 
 	bool Empty() const override;
 
 	std::string ToString() const override;
 
-	std::string Back() const override;
+	std::string& Back() const override;
 
 	Container* Clone() const override;
 
-	std::string GetType() const override {
+	const std::string& GetType() const override {
 		return _type;
 	}
 
@@ -75,7 +75,7 @@ public:
 	}
 
 private:
-	std::string _type = "StackMassive";
+	const std::string _type = "StackMassive";
 	int _sizeOfStack = 0;
 	int _stackMemory;
 	std::string* _array;

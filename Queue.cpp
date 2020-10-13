@@ -1,16 +1,17 @@
 #include "Queue.h"
 #include <iostream>
+#include <ostream>
 #include "ContainerException.h"
 
 
 
-void Queue::Push (const std::string element) {
+void Queue::Push (const std::string& element) {
 	if (_queueSize < _queueMemory) {
 		_queue[_queueSize] = element;
 		_queueSize++;
 	}
 	else {
-		throw ContainerException("Переполнение");
+		throw std::exception("Переполнение");
 	}
 }
 
@@ -24,7 +25,7 @@ void Queue::MultiPush(const int count, std::string *elements) {
 		delete[]elements;
 	}
 	else {
-		throw ContainerException("Невозможно добавить такое количество элементов");
+		throw std::exception("Невозможно добавить такое количество элементов");
 	}
 }
 
@@ -34,7 +35,7 @@ void Queue::MultiPop(const int count) {
 			Pop();
 		}
 		else {
-			throw ContainerException("Все элементы удалены");
+			throw std::exception("Все элементы удалены");
 		}
 	}
 }
@@ -47,13 +48,16 @@ Container* Queue::Clone() const
 std::string Queue::ToString() const {
 	std::ostringstream out;
 	std::string* array = _queue;
+	std::string ans;
+	
 	
 
 	for (int begin = 0; begin < _queueSize; begin++) {
 		out << "[" << array[begin] << "] ";
 	}
 
-	return out.str();
+	ans = out.str();
+	return ans;
 }
 
 void Queue::Pop() {
@@ -64,20 +68,20 @@ void Queue::Pop() {
 	_queueSize--;
 }
 
-std::string Queue::Front() const {
+std::string& Queue::Front() const {
 	if (_queueSize != 0) {
 		return _queue[0];
 	}
 
-	throw ContainerException("Стек пуст");
+	throw std::exception("Стек пуст");
 }
 
-std::string Queue::Back() const {
+std::string& Queue::Back() const {
 	if (_queueSize != 0) {
 		return _queue[_queueSize - 1];
 	}
 
-	throw ContainerException("Стек пуст");
+	throw std::exception("Стек пуст");
 }
 
 bool Queue::Empty() const {

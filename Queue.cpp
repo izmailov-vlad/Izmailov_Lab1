@@ -61,11 +61,17 @@ std::string Queue::ToString() const {
 }
 
 void Queue::Pop() {
-	for (int i = 1; i < _queueSize; i++) {
-		_queue[i - 1] = _queue[i];
+	if (_queueSize > 0) {
+		for (int i = 1; i < _queueSize; i++) {
+			_queue[i - 1] = _queue[i];
+		}
+
+		_queue[_queueSize - 1] = "";
+		_queueSize--;
 	}
-	_queue[_queueSize - 1] = "";
-	_queueSize--;
+	else {
+		throw ContainerException("Очередь пуста");
+	}
 }
 
 std::string& Queue::Front() const {

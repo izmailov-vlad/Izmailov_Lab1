@@ -1,6 +1,4 @@
-﻿  ConsoleIteractor.cpp
-  Queue.cpp
-  StackList.cpp
+﻿  Queue.cpp
   StackMassive.cpp
   Создание кода...
 LINK : warning LNK4075: не учитывается "/INCREMENTAL" из-за спецификации "/PROFILE"

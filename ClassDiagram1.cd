@@ -7,17 +7,10 @@
       <FileName>StackMassive.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ContainerException">
-    <Position X="6.25" Y="4" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAA=</HashCode>
-      <FileName>ContainerException.h</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="ConsoleIteractor">
     <Position X="8.5" Y="3.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAEAAAAAIAAQAAACAACAAAQAAAIAQAAECAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAIAAQAAAAAACAAAQAAAIAQAAECAAAAAAAAAA=</HashCode>
       <FileName>ConsoleIteractor.h</FileName>
     </TypeIdentifier>
   </Class>
@@ -34,6 +27,9 @@
       <HashCode>AQAAAAAAAAAAgAQEAAYACAAAAACAAAEAAAIgAIFBCBA=</HashCode>
       <FileName>StackList.h</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_head" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="Container">
     <Position X="6.25" Y="1" Width="1.5" />
@@ -47,6 +43,13 @@
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAA=</HashCode>
       <FileName>Factory.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ContainerException">
+    <Position X="6.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAAAAAAAAAAAAAAIAAAAAAAAAQAAAA=</HashCode>
+      <FileName>ContainerException.h</FileName>
     </TypeIdentifier>
   </Class>
   <Struct Name="Node">

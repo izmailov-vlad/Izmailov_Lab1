@@ -8,7 +8,7 @@ void StackMassive::Push(const std::string& new_element) { // O(1)
 		_sizeOfStack++;
 	}
 	else {
-		throw std::exception("Выход за пределы массива");
+		throw ContainerException("Выход за пределы массива");
 	}
 }
 
@@ -24,7 +24,7 @@ void StackMassive::MultiPush(const int count, std::string *elements) {
 		delete[]elements;
 	}
 	else {
-		throw std::exception("Невозможно добавить такое количество элементов");
+		throw ContainerException("Невозможно добавить такое количество элементов");
 	}
 
 
@@ -36,7 +36,7 @@ void StackMassive::Pop() { // O(1)
 		_sizeOfStack--;
 	}
 	else {
-		throw std::exception("Стек пуст");
+		throw ContainerException("Стек пуст");
 	}
 }
 
@@ -46,7 +46,7 @@ void StackMassive::MultiPop(const int count) {
 			Pop();
 		}
 		else {
-			throw std::exception("Все элементы удалены");
+			throw ContainerException("Все элементы удалены");
 		}
 	}
 }

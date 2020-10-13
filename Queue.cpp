@@ -11,7 +11,7 @@ void Queue::Push (const std::string& element) {
 		_queueSize++;
 	}
 	else {
-		throw std::exception("Переполнение");
+		throw ContainerException("Переполнение");
 	}
 }
 
@@ -25,7 +25,7 @@ void Queue::MultiPush(const int count, std::string *elements) {
 		delete[]elements;
 	}
 	else {
-		throw std::exception("Невозможно добавить такое количество элементов");
+		throw ContainerException("Невозможно добавить такое количество элементов");
 	}
 }
 
@@ -35,7 +35,7 @@ void Queue::MultiPop(const int count) {
 			Pop();
 		}
 		else {
-			throw std::exception("Все элементы удалены");
+			throw ContainerException("Все элементы удалены");
 		}
 	}
 }
@@ -73,7 +73,7 @@ std::string& Queue::Front() const {
 		return _queue[0];
 	}
 
-	throw std::exception("Стек пуст");
+	throw ContainerException("Стек пуст");
 }
 
 std::string& Queue::Back() const {
@@ -81,7 +81,7 @@ std::string& Queue::Back() const {
 		return _queue[_queueSize - 1];
 	}
 
-	throw std::exception("Стек пуст");
+	throw ContainerException("Стек пуст");
 }
 
 bool Queue::Empty() const {

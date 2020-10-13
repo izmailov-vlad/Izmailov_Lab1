@@ -3,40 +3,37 @@
   <Class Name="StackMassive">
     <Position X="1.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AQACAAAAAIAAAAAEgAoACAAAAAGBAQEAAAAgAAEADBA=</HashCode>
+      <HashCode>AQAAAAgAAAAAAASEAAYACIAAAACAAQEAAAAgAAMADBA=</HashCode>
       <FileName>StackMassive.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ContainerException">
     <Position X="6.25" Y="4" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAABAAAAAAAAAAAAIAAAAAAAAAQAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAA=</HashCode>
       <FileName>ContainerException.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ConsoleIteractor">
     <Position X="8.5" Y="3.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAEAAAAAIAAAAAACABCAAAQAAAAAQAAEACAAAAAAAAA=</HashCode>
+      <HashCode>AAEAAAAAIAAQAAACAACAAAQAAAIAQAAECAAAAAAAAAA=</HashCode>
       <FileName>ConsoleIteractor.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Queue">
     <Position X="3.5" Y="2.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AQAAEAAAACAAAAAEAAJACCAAQACBAAkAAAAgAAEACBA=</HashCode>
+      <HashCode>AQAAEAAAACAAAAYEEAIACAAAQACAACEAAAAgAAEACBA=</HashCode>
       <FileName>Queue.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="StackList">
     <Position X="10.5" Y="3" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>gQAKAAAAgAAAAAAEAIIACAAAAACBAAEAAAIgAAFACBA=</HashCode>
+      <HashCode>AQAAAAAAAAAAgAQEAAYACAAAAACAAAEAAAIgAIFBCBA=</HashCode>
       <FileName>StackList.h</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Field Name="head" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="Container">
     <Position X="6.25" Y="1" Width="1.5" />
@@ -46,9 +43,9 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Factory">
-    <Position X="8.5" Y="1" Width="1.5" />
+    <Position X="8.25" Y="1" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAIAAAAAAABAAAAAAAAAAAAAAQAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAA=</HashCode>
       <FileName>Factory.h</FileName>
     </TypeIdentifier>
   </Class>

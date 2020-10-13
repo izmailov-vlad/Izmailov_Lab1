@@ -24,7 +24,7 @@ void StackList::Pop() {
 		delete node;
 	}
 	else {
-		throw std::exception("Стек пуст");
+		throw ContainerException("Стек пуст");
 	}
 }
 
@@ -50,7 +50,7 @@ void StackList::MultiPop(const int count) {
 			Pop();
 		}
 		else {
-			throw std::exception("Все элементы удалены");
+			throw ContainerException("Все элементы удалены");
 		}
 	}
 }
@@ -69,7 +69,7 @@ std::string& StackList::Back() const{
 		return node->element;
 	}
 	else {
-		throw std::exception("Последний элемент не найден");
+		throw ContainerException("Последний элемент не найден");
 	}
 }
 

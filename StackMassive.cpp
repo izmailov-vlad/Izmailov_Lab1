@@ -75,7 +75,7 @@ std::string& StackMassive::Back() const { // O(1)
 		return _array[0];
 	}
 	else {
-		throw std::exception("Последний элемент не найден");
+		throw ContainerException("Последний элемент не найден");
 	}
 }
 

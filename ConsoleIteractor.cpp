@@ -142,7 +142,7 @@ void ConsoleIteractor::PrintAllContainers(Container **container) {
 		}
 		return;
 	}
-	throw std::exception("Нет ни одного контейнера");
+	throw ContainerException("Нет ни одного контейнера");
 }
 
 void ConsoleIteractor::InputAction() {
@@ -170,7 +170,7 @@ void ConsoleIteractor::InputAction() {
 			cin >> action;
 
 			if ((action > 0 && action < 8) && _containerSize == 0) {
-				throw std::exception("Нет ни одного контейнера");
+				throw ContainerException("Нет ни одного контейнера");
 			}
 
 			switch (action) {
@@ -186,7 +186,7 @@ void ConsoleIteractor::InputAction() {
 					if (_containerSize) {
 						PrintAllContainers(container);
 					}
-					else throw std::exception("Нет ни одного контейнера");
+					else throw ContainerException("Нет ни одного контейнера");
 					
 					break;
 				}
@@ -198,7 +198,7 @@ void ConsoleIteractor::InputAction() {
 
 					if (container[_indexOfContainer] == nullptr) {
 						_indexOfContainer = last_index;
-						throw std::exception("Контейнера с таким индексом не существует");
+						throw ContainerException("Контейнера с таким индексом не существует");
 					}
 					break;
 				}
@@ -255,7 +255,7 @@ void ConsoleIteractor::InputAction() {
 						} 
 					}
 					else {
-						throw std::exception("Контейнера не существует");
+						throw ContainerException("Контейнера не существует");
 					}
 					
 					break;
@@ -303,7 +303,7 @@ void ConsoleIteractor::InputAction() {
 				}
 			}
 		}
-		catch (std:: exception& ex) {
+		catch (ContainerException& ex) {
 			cout << ex.what() << endl;
 		}
 	}

@@ -3,6 +3,5 @@
 
 class Factory {
 public:
-
 	Container* CreateContainer(int type, int size = 0);
 };
